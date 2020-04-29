@@ -45,10 +45,10 @@ class Navbar extends React.Component {
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
                   <MDBNavItem>
-                    <MDBNavLink to="#">Login</MDBNavLink>
+                    <MDBNavLink to='/signIn'>Login</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#">Register</MDBNavLink>
+                    <MDBNavLink to='/signUp'>Register</MDBNavLink>
                   </MDBNavItem>
                  
                 </MDBNavbarNav>
@@ -56,10 +56,7 @@ class Navbar extends React.Component {
             </MDBNavbar>
           </header>
         </Router>
-        <MDBContainer style={container} className="text-center mt-5">
-          <h2>This Navbar isn't fixed</h2>
-          <h5>When you scroll down it will disappear</h5>
-        </MDBContainer>
+       
       </div>
     );
   }
