@@ -1,29 +1,46 @@
 import React,{Component} from 'react';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import './sign.css';
+import {Router} from 'react-router-dom';
 
-class SignIn extends Component {
-  render(){
-     const container = { height: 1300,position:'absolute',left:'30%' };
-return (
-<MDBContainer style={container} className="center text-center mt-5">
-  <MDBRow>
-    <MDBCol md="6">
-      <form>
-        <p className="h5 text-center mb-4">Sign in</p>
-        <div className="grey-text">
-          <MDBInput label="Type your email" icon="envelope" group type="email" validate error="wrong"
-            success="right" />
-          <MDBInput label="Type your password" icon="lock" group type="password" validate />
+class SignIn extends Component{
+    
+    render(){
+        
+    return(
+    
+<div className="login-form">
+    <form >
+        <h2 className="text-center">Sign in</h2>   
+        <div className="form-group">
+        	<div className="input-group">
+                <span className="input-group-addon"><i ></i></span>
+                <input type="text" className="form-control" name="email" placeholder="Email" required="required"onChange={this.onEmailChange}/>				
+            </div>
         </div>
-        <div className="text-center">
-          <MDBBtn>Login</MDBBtn>
+		<div className="form-group">
+            <div className="input-group">
+                <span className="input-group-addon"><i ></i></span>
+                <input type="password" className="form-control" name="password" placeholder="Password" required="required"onChange={this.onPasswordChange}/>				
+            </div>
+        </div>        
+        <div className="form-group">
+            
+            <button type="submit" className="btn btn-primary login-btn btn-block" onClick={this.onSubmit}>Sign in</button>
         </div>
-      </form>
-    </MDBCol>
-  </MDBRow>
-</MDBContainer>
-);
-  }
-};
-
+        <div className="clearfix">
+            <label className="pull-left checkbox-inline"><input type="checkbox"/> Remember me</label>
+            <a href="#" className="pull-right">Forgot Password?</a>
+        </div>
+		<div className="or-seperator"><i>or</i></div>
+        <p className="text-center">Login with your social media account</p>
+        <div className="text-center social-btn">
+            <a href="#" className="btn btn-primary"><i className="fa fa-facebook"></i>&nbsp; Facebook</a>
+            <a href="#" className="btn btn-info"><i className="fa fa-twitter"></i>&nbsp; Twitter</a>
+			<a href="#" className="btn btn-danger"><i className="fa fa-google"></i>&nbsp; Google</a>
+        </div>
+    </form>
+    <p className="text-center text-muted small">Don't have an account? <a href="/signUp">Sign up here!</a></p>
+</div>
+    );}
+}
 export default SignIn;

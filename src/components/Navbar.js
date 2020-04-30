@@ -1,65 +1,42 @@
-import React from 'react';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon, MDBContainer } from 'mdbreact';
-import { BrowserRouter as Router } from 'react-router-dom';
 
-class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapse: false,
-    };
-    this.onClick = this.onClick.bind(this);
-  }
+import React, { Component } from 'react';
+import {Navbar,Nav,NavDropdown} from  'react-bootstrap';
 
-  onClick() {
-    this.setState({
-      collapse: !this.state.collapse,
-    });
-  }
+
+
+class NavBar extends React.Component {
+  
+
+  
 
   render() {
     const container = { height: 1300 }
     return (
-      <div>
-        <Router>
-          <header>
-            <MDBNavbar color='default-color' dark expand='lg'>
-              <MDBNavbarBrand href="/">
-                <strong>Navbar</strong>
-              </MDBNavbarBrand>
-              <MDBNavbarToggler onClick={this.onClick} />
-              <MDBCollapse isOpen={this.state.collapse} navbar>
-                <MDBNavbarNav left>
-                  <MDBNavItem active>
-                    <MDBNavLink to="#">Home</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Features</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Pricing</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Opinions</MDBNavLink>
-                  </MDBNavItem>
-                </MDBNavbarNav>
-                <MDBNavbarNav right>
-                  <MDBNavItem>
-                    <MDBNavLink to='/signIn'>Login</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to='/signUp'>Register</MDBNavLink>
-                  </MDBNavItem>
-                 
-                </MDBNavbarNav>
-              </MDBCollapse>
-            </MDBNavbar>
-          </header>
-        </Router>
-       
-      </div>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+      <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+    <Nav>
+      <Nav.Link href="/signIn">Login</Nav.Link>
+      <Nav.Link  href="/signUp">
+        Register
+      </Nav.Link>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
     );
   }
 }
 
-export default Navbar;
+export default NavBar;
