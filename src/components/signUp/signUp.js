@@ -1,8 +1,57 @@
 import React,{Component} from 'react';
 import './signUp.css';
-
+const axios=require('axios');
 class SignUp extends Component {
-  
+  state={
+    
+    Name:'',
+    Email:'',
+    password:'',
+    confirmPassword:''
+
+  }
+  handleNameChange=(e)=>{
+    this.setState({
+      Name:e.target.value
+    });
+
+  }
+  handleEmailChange=(e)=>{
+    this.setState({
+      Email:e.target.value
+    })
+  }
+  handlePasswordChange=(e)=>{
+    this.setState({
+      password:e.target.value
+    });
+   
+  }
+  handleConfirmPasswordChange=(e)=>{
+    this.setState({
+      confirmPassword:e.target.value
+    })
+  }
+  handleSubmit=(e)=>{
+   
+   
+  e.preventDefault();
+    alert(this.state.Name);
+     axios.post('https:sample-endpoint.com/user', {
+       Name:this.state.Name,
+    Email: this.state.Email,
+    Password:this.state.password,
+    confirmPassword:this.state.confirmPassword
+  })
+  .then(function (response) {
+    console.log(response);
+  });
+      
+      
+
+    this.props.history.push('/signIn');
+    
+  }
   render()
   {
     
