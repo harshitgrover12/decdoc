@@ -30,6 +30,8 @@ axios.post('http://localhost:4000/api/auth/signin', {
   })
   .then(function (response) {
     console.log(response);
+  }).catch((err)=>{
+      alert(err);
   });
           
         
