@@ -4,17 +4,17 @@ import {Router} from 'react-router-dom';
 const axios = require('axios')
 class SignIn extends Component{
     state={
-        Email:'',
-        Password:''
+        username:'',
+        password:''
     }
-    onEmailChange=(e)=>{
+    onUserNameChange=(e)=>{
         this.setState({
-            Email:e.target.value
+            username:e.target.value
         })
     }
     onPasswordChange=(e)=>{
         this.setState({
-            Password:e.target.value
+            password:e.target.value
         });
     }
     onSubmit=(e)=>{
@@ -24,9 +24,9 @@ class SignIn extends Component{
        
         
  
-axios.post('https:sample-endpoint.com/user', {
-    Email: this.state.Email,
-    Password:this.state.Password
+axios.post('http://localhost:4000/api/auth/signin', {
+    username: this.state.username,
+    password:this.state.password
   })
   .then(function (response) {
     console.log(response);
@@ -45,7 +45,7 @@ axios.post('https:sample-endpoint.com/user', {
         <div className="form-group">
         	<div className="input-group">
                 <span className="input-group-addon"><i ></i></span>
-                <input type="text" className="form-control" name="email" placeholder="Email" required="required"onChange={this.onEmailChange}/>				
+                <input type="text" className="form-control" name="email" placeholder="Email" required="required"onChange={this.onUserNameChange}/>				
             </div>
         </div>
 		<div className="form-group">

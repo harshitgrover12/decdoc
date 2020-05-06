@@ -4,21 +4,28 @@ const axios=require('axios');
 class SignUp extends Component {
   state={
     
-    Name:'',
-    Email:'',
+    fullName:'',
+    email:'',
+    username:'',
     password:'',
-    confirmPassword:''
+ 
 
   }
   handleNameChange=(e)=>{
     this.setState({
-      Name:e.target.value
+      name:e.target.value
+    });
+
+  }
+    handleUserNameChange=(e)=>{
+    this.setState({
+      username:e.target.value
     });
 
   }
   handleEmailChange=(e)=>{
     this.setState({
-      Email:e.target.value
+      email:e.target.value
     })
   }
   handlePasswordChange=(e)=>{
@@ -27,24 +34,20 @@ class SignUp extends Component {
     });
    
   }
-  handleConfirmPasswordChange=(e)=>{
-    this.setState({
-      confirmPassword:e.target.value
-    })
-  }
+  
   handleSubmit=(e)=>{
    
    
   e.preventDefault();
-    alert(this.state.Name);
-     axios.post('https:sample-endpoint.com/user', {
-       Name:this.state.Name,
-    Email: this.state.Email,
-    Password:this.state.password,
-    confirmPassword:this.state.confirmPassword
+   
+     axios.post('http://localhost:4000/api/auth/signup', {
+    fullName:this.state.Name,
+    email: this.state.email,
+    username:this.state.username,
+    password:this.state.password,
   })
   .then(function (response) {
-    console.log(response);
+    alert(response);
   });
       
       
@@ -64,19 +67,22 @@ class SignUp extends Component {
 		<hr/>
         <div className="form-group">
 			
-				<input type="text" className="form-control" name="Full Name" placeholder="Full Name" required="required"onChange={this.handleNameChange}/>
+				<input type="text" className="form-control" name="Full Name" placeholder="Full Name" required="required"onChange={this.handleUserNameChange}/>
 				
 			</div>        	
        
         <div className="form-group">
         	<input type="email" className="form-control" name="email" placeholder="Email" required="required"onChange={this.handleEmailChange}/>
         </div>
+        <div className="form-group">
+			
+				<input type="text" className="form-control" name="User Name" placeholder="User Name" required="required"onChange={this.handleNameChange}/>
+				
+			</div> 
 		<div className="form-group">
             <input type="password" className="form-control" name="password" placeholder="Password" required="required"onChange={this.handlePasswordChange}/>
         </div>
-		<div className="form-group">
-            <input type="password" className="form-control" name="confirm_password" placeholder="Confirm Password" required="required"onChange={this.handleConfirmPasswordChange}/>
-        </div>        
+		      
         <div className="form-group">
 			<label className="checkbox-inline"><input type="checkbox" required="required"/> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
 		</div>
