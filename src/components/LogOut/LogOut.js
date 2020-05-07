@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 function LogOut (props) {
         const handleLogout = () => {
+            props.isSignIn(false);
             props.history.push('/signIn');
         }
         return (

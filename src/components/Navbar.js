@@ -27,12 +27,13 @@ class NavBar extends React.Component {
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
     </Nav>
+    {!this.props.isSignedIn?<div>
     <Nav>
       <Nav.Link href="/signIn">Login</Nav.Link>
       <Nav.Link  href="/signUp">
         Register
       </Nav.Link>
-    </Nav>
+    </Nav></div>:(<div></div>)}
   </Navbar.Collapse>
 </Navbar>
     );

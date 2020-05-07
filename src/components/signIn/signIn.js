@@ -31,7 +31,7 @@ axios.post('http://localhost:4000/api/auth/signin', {
   })
   .then(data=>{
      
-
+this.props.isSignIn(true);
 this.props.history.push('/home');
    
   }).catch((err)=>{

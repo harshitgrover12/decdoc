@@ -41,7 +41,7 @@ class SignUp extends Component {
   e.preventDefault();
    
      axios.post('http://localhost:4000/api/auth/signup', {
-    fullName:this.state.Name,
+    fullName:this.state.fullName,
     email: this.state.email,
     username:this.state.username,
     password:this.state.password,

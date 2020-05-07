@@ -21,10 +21,10 @@ class App extends Component {
   return (
   <BrowserRouter>
         <div>
-        <NavBar />
+        <NavBar isSignedIn={this.state.isSignedIn}/>
         <Route exact path='/signIn' render={(props)=><SignIn {...props} isSignIn={this.isSignIn}/>}/>
           <Route exact path='/signUp' component={SignUp}/>
-          <Route exact path='/home' component={LogOut}/>
+          <Route exact path='/home' render={(props)=><LogOut {...props} isSignIn={this.isSignIn}/>}/>
         
         
        
