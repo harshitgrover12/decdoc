@@ -5,7 +5,8 @@ const axios = require('axios')
 class SignIn extends Component{
     state={
         username:'',
-        password:''
+        password:'',
+        
     }
     onUserNameChange=(e)=>{
         this.setState({
@@ -28,11 +29,15 @@ axios.post('http://localhost:4000/api/auth/signin', {
     username: this.state.username,
     password:this.state.password
   })
-  .then(function (response) {
-    console.log(response);
+  .then(data=>{
+     
+
+this.props.history.push('/home');
+   
   }).catch((err)=>{
       alert(err);
   });
+  
           
         
     }
