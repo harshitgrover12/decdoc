@@ -3,7 +3,7 @@ import React, { Component } from 'react'
  class Home extends Component {
     render() {
         return (
-            <div>
+            <div id="body">
                 {/* ======= Header ======= */}
         <header id="header" className="fixed-top ">
           <div className="container-fluid">
@@ -14,7 +14,7 @@ import React, { Component } from 'react'
                 {/* <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}
                 <nav className="nav-menu d-none d-lg-block">
                   <ul>
-                    <li className="active"><a href="index.html">Home</a></li>
+                    <li className="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
