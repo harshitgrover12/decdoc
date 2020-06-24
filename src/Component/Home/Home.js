@@ -16,7 +16,7 @@ export default class Home extends Component {
                     <li className="active"><a href="index.html">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="/signIn">SignIn/SignUp</a></li>
                     <li><a href="#team">Team</a></li>
                     <li className="drop-down"><a href>Drop Down</a>
                       <ul>
