@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 
- class Home extends Component {
-    render() {
-        return (
-            <div id="body">
-                {/* ======= Header ======= */}
-        <header id="header" className="fixed-top ">
+export default class Home extends Component {
+  render() {
+    return (
+      <div>
+         <header id="header" className="fixed-top ">
           <div className="container-fluid">
             <div className="row justify-content-center">
               <div className="col-xl-9 d-flex align-items-center">
@@ -14,7 +13,7 @@ import React, { Component } from 'react'
                 {/* <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}
                 <nav className="nav-menu d-none d-lg-block">
                   <ul>
-                    <li className="active"><a href="#">Home</a></li>
+                    <li className="active"><a href="index.html">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
@@ -38,12 +37,14 @@ import React, { Component } from 'react'
                     </li>
                     <li><a href="#contact">Contact</a></li>
                   </ul>
-                </nav>{/* .nav-menu */}
+                </nav>
+                {/* .nav-menu */}
                 <a href="#about" className="get-started-btn scrollto">Get Started</a>
               </div>
             </div>
           </div>
-        </header>{/* End Header */}
+        </header>
+        {/* End Header */}
         {/* ======= Hero Section ======= */}
         <section id="hero" className="d-flex align-items-center">
           <div className="container-fluid" data-aos="fade-up">
@@ -58,7 +59,8 @@ import React, { Component } from 'react'
               </div>
             </div>
           </div>
-        </section>{/* End Hero */}
+        </section>
+        {/* End Hero */}
         <main id="main">
           {/* ======= About Section ======= */}
           <section id="about" className="about">
@@ -70,8 +72,7 @@ import React, { Component } from 'react'
                 <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
                   <h3>Voluptatem dignissimos provident quasi corporis</h3>
                   <p className="font-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
                   <ul>
                     <li><i className="icofont-check-circled" /> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
@@ -82,7 +83,8 @@ import React, { Component } from 'react'
                 </div>
               </div>
             </div>
-          </section>{/* End About Section */}
+          </section>
+          {/* End About Section */}
           {/* ======= Counts Section ======= */}
           <section id="counts" className="counts">
             <div className="container">
@@ -105,13 +107,15 @@ import React, { Component } from 'react'
                 </div>
               </div>
             </div>
-          </section>{/* End Counts Section */}
+          </section>
+          {/* End Counts Section */}
           {/* ======= Services Section ======= */}
           <section id="services" className="services section-bg">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Services</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
+                  quidem hic quas.</p>
               </div>
               <div className="row">
                 <div className="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay={100}>
@@ -188,13 +192,15 @@ import React, { Component } from 'react'
                 </div>
               </div>
             </div>
-          </section>{/* End Services Section */}
+          </section>
+          {/* End Services Section */}
           {/* ======= Features Section ======= */}
           <section id="features" className="features">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Features</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
+                  quidem hic quas.</p>
               </div>
               <div className="row">
                 <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
@@ -224,19 +230,21 @@ import React, { Component } from 'react'
                 </div>
               </div>
             </div>
-          </section>{/* End Features Section */}
+          </section>
+          {/* End Features Section */}
           {/* ======= Testimonials Section ======= */}
           <section id="testimonials" className="testimonials section-bg">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Testimonials</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
+                  quidem hic quas.</p>
               </div>
               <div className="owl-carousel testimonials-carousel">
                 <div className="testimonial-item">
                   <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left" />
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    <i className="bx bxs-quote-alt-left quote-icon-left" /> Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus
+                    at semper.
                     <i className="bx bxs-quote-alt-right quote-icon-right" />
                   </p>
                   <img src="assets/img/testimonials/testimonials-1.jpg" className="testimonial-img" alt="" />
@@ -245,8 +253,8 @@ import React, { Component } from 'react'
                 </div>
                 <div className="testimonial-item">
                   <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left" />
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    <i className="bx bxs-quote-alt-left quote-icon-left" /> Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam
+                    anim culpa.
                     <i className="bx bxs-quote-alt-right quote-icon-right" />
                   </p>
                   <img src="assets/img/testimonials/testimonials-2.jpg" className="testimonial-img" alt="" />
@@ -255,8 +263,7 @@ import React, { Component } from 'react'
                 </div>
                 <div className="testimonial-item">
                   <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left" />
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    <i className="bx bxs-quote-alt-left quote-icon-left" /> Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
                     <i className="bx bxs-quote-alt-right quote-icon-right" />
                   </p>
                   <img src="assets/img/testimonials/testimonials-3.jpg" className="testimonial-img" alt="" />
@@ -265,8 +272,8 @@ import React, { Component } from 'react'
                 </div>
                 <div className="testimonial-item">
                   <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left" />
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore.
+                    <i className="bx bxs-quote-alt-left quote-icon-left" /> Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore
+                    labore.
                     <i className="bx bxs-quote-alt-right quote-icon-right" />
                   </p>
                   <img src="assets/img/testimonials/testimonials-4.jpg" className="testimonial-img" alt="" />
@@ -275,8 +282,8 @@ import React, { Component } from 'react'
                 </div>
                 <div className="testimonial-item">
                   <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left" />
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa.
+                    <i className="bx bxs-quote-alt-left quote-icon-left" /> Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
+                    culpa.
                     <i className="bx bxs-quote-alt-right quote-icon-right" />
                   </p>
                   <img src="assets/img/testimonials/testimonials-5.jpg" className="testimonial-img" alt="" />
@@ -285,13 +292,15 @@ import React, { Component } from 'react'
                 </div>
               </div>
             </div>
-          </section>{/* End Testimonials Section */}
+          </section>
+          {/* End Testimonials Section */}
           {/* ======= Portfolio Section ======= */}
           <section id="portfolio" className="portfolio">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Portfolio</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
+                  quidem hic quas.</p>
               </div>
               <div className="row">
                 <div className="col-lg-12 d-flex justify-content-center">
@@ -423,13 +432,15 @@ import React, { Component } from 'react'
                 </div>
               </div>
             </div>
-          </section>{/* End Portfolio Section */}
+          </section>
+          {/* End Portfolio Section */}
           {/* ======= Pricing Section ======= */}
           <section id="pricing" className="pricing section-bg">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Pricing</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
+                  quidem hic quas.</p>
               </div>
               <div className="row">
                 <div className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay={100}>
@@ -499,13 +510,15 @@ import React, { Component } from 'react'
                 </div>
               </div>
             </div>
-          </section>{/* End Pricing Section */}
+          </section>
+          {/* End Pricing Section */}
           {/* ======= Frequently Asked Questions Section ======= */}
           <section id="faq" className="faq">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Frequently Asked Questions</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
+                  quidem hic quas.</p>
               </div>
               <div className="faq-list">
                 <ul>
@@ -521,7 +534,8 @@ import React, { Component } from 'react'
                     <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" href="#faq-list-2" className="collapsed">Feugiat scelerisque varius morbi enim nunc? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
                     <div id="faq-list-2" className="collapse" data-parent=".faq-list">
                       <p>
-                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                        cursus turpis massa tincidunt dui.
                       </p>
                     </div>
                   </li>
@@ -529,7 +543,8 @@ import React, { Component } from 'react'
                     <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" href="#faq-list-3" className="collapsed">Dolor sit amet consectetur adipiscing elit? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
                     <div id="faq-list-3" className="collapse" data-parent=".faq-list">
                       <p>
-                        Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                        Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
+                        molestie at elementum eu facilisis sed odio morbi quis
                       </p>
                     </div>
                   </li>
@@ -552,13 +567,15 @@ import React, { Component } from 'react'
                 </ul>
               </div>
             </div>
-          </section>{/* End Frequently Asked Questions Section */}
+          </section>
+          {/* End Frequently Asked Questions Section */}
           {/* ======= Contact Section ======= */}
           <section id="contact" className="contact section-bg">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Contact</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
+                  quidem hic quas.</p>
               </div>
               <div className="row">
                 <div className="col-lg-6">
@@ -617,8 +634,10 @@ import React, { Component } from 'react'
                 </div>
               </div>
             </div>
-          </section>{/* End Contact Section */}
-        </main>{/* End #main */}
+          </section>
+          {/* End Contact Section */}
+        </main>
+        {/* End #main */}
         {/* ======= Footer ======= */}
         <footer id="footer">
           <div className="footer-top">
@@ -627,9 +646,7 @@ import React, { Component } from 'react'
                 <div className="col-lg-3 col-md-6 footer-contact">
                   <h3>Techie</h3>
                   <p>
-                    A108 Adam Street <br />
-                    New York, NY 535022<br />
-                    United States <br /><br />
+                    A108 Adam Street <br /> New York, NY 535022<br /> United States <br /><br />
                     <strong>Phone:</strong> +1 5589 55488 55<br />
                     <strong>Email:</strong> info@example.com<br />
                   </p>
@@ -687,11 +704,12 @@ import React, { Component } from 'react'
               </div>
             </div>
           </div>
-        </footer>{/* End Footer */}
+        </footer>
+        {/* End Footer */}
         <a href="#" className="back-to-top"><i className="icofont-simple-up" /></a>
         <div id="preloader" />
-            </div>
-        )
-    }
+        
+      </div>
+    )
+  }
 }
-export default Home;
