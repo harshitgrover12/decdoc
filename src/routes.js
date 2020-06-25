@@ -7,8 +7,8 @@ import SignIn from './Component/signIn/SignIn';
         return (
             <div>
             <BrowserRouter>
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/signIn' component={SignIn}/>
+                <Route exact path='/' render={(props)=><Home{...this.props}/>}/>
+                <Route exact path='/signIn' render={(props)=><SignIn{...this.props}/>}/>
             </BrowserRouter>
                 
             </div>
