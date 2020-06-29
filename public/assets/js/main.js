@@ -69,9 +69,10 @@
   });
 
   // Mobile Navigation
+
   if ($('.nav-menu').length) {
-    console.log($('.nav-menu').length);
-    var $mobile_nav = $('.nav-menu').clone().prop({
+   
+     $mobile_nav = $('.nav-menu').clone().prop({
       class: 'mobile-nav d-lg-none'
     });
     $('body').append($mobile_nav);
