@@ -1,4 +1,4 @@
-[{
+{
     "contractName": "OrganizationList",
     "abi": [{
             "constant": true,
@@ -1141,4 +1141,4 @@
     "userdoc": {
         "methods": {}
     }
-}]
+}

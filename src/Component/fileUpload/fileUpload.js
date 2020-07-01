@@ -14,6 +14,9 @@ class FileUpload extends Component {
     // Initially, no file is selected
     selectedFile: null,
   };
+  componentDidMount=()=>{
+	  
+  }
 
   // On file select (from the pop up)
   onFileChange = (event) => {
@@ -23,7 +26,7 @@ class FileUpload extends Component {
 
   // On file upload (click the upload button)
   onFileUpload = (e) => {
-    e.preventDefault();
+    
     const data = new FormData();
     data.append("file", this.state.selectedFile);
     axios
@@ -32,18 +35,44 @@ class FileUpload extends Component {
 
     //Interact with contracts
     var web3 = new Web3(
-      new Web3.providers.HttpProvider("http://localhost:7545")
+     "http://localhost:7545"
     );
-    web3.eth.defaultAccount = web3.eth.accounts[0];
+	const accounts = web3.eth.getAccounts();
+	    web3.eth.defaultAccount = web3.eth.accounts[1];
 
-    let OrganizationList = new web3.eth.Contract(orgApi,"0xB378B38Aaa8C3992133873931d655aDDb169469e");
+	console.log(accounts);
+	console.log(web3);
+	let OrganizationList = new web3.eth.Contract(orgApi.abi,"0xB378B38Aaa8C3992133873931d655aDDb169469e")
     let OrganizationA;
-    OrganizationList.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
-      (inst) => {
-        OrganizationA = inst;
-      }
-    );
-	OrganizationA.createOrganization("google","fbid","mysecret",{from:'0x72b7F0163E042a0845432A4c00B3c86d2B380096'});
+	console.log(OrganizationList);
+    // OrganizationList.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
+    //   (inst) => {
+    //     OrganizationA = inst;
+    //   }
+    // );
+	OrganizationList.methods.getDeployedOrganizations().send({ from:"0x0006aDB4fee9a9FdD651812bB0C7Fcef5d7834E3" , gas: '100000', gasPrice: '10000000000000' })
+      .then(r => {
+        console.log(r);
+      })
+      .catch(e => {
+        console.log(e);
+      });;
+
+//     web3.eth.defaultAccount = web3.eth.accounts[0];
+// 	let orglist;
+// 	web3.eth.Contract(orgApi,"0xB378B38Aaa8C3992133873931d655aDDb169469e").then(insta=>{
+
+// 	 orglist = insta;
+//     var OrganizationA;
+//     orglist.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
+//       (inst) => {
+//         OrganizationA = inst;
+// 		OrganizationA.createOrganization("google","fbid","mysecret",{from:'0x72b7F0163E042a0845432A4c00B3c86d2B380096'});
+//       }
+//     );
+//   })
+	
+	
   };
 
   // File content to be displayed after
