@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { Component } from "react";
-var crypto = require("crypto");
-var fs = require("fs");
-const Web3 = require("Web3");
+import orgApi from '../contracts/OrganizationList.json';
+import Web3 from 'web3';
+
+
+
+
 
 const ABI = "";
 
@@ -28,18 +31,19 @@ class FileUpload extends Component {
       .then((res) => console.log(res));
 
     //Interact with contracts
-    const web3 = new Web3(
+    var web3 = new Web3(
       new Web3.providers.HttpProvider("http://localhost:7545")
     );
     web3.eth.defaultAccount = web3.eth.accounts[0];
 
-    let Orgnanization = web3.eth.contract(ABI);
+    let OrganizationList = new web3.eth.Contract(orgApi);
     let OrganizationA;
-    Organzation.at("0x3d3410425DC76b77aAb60DAf36b9D8b69ad7d085").then(
+    OrganizationList.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
       (inst) => {
         OrganizationA = inst;
       }
     );
+	OrganizationA.createOrganization("google","fbid","mysecret",{from:'0x72b7F0163E042a0845432A4c00B3c86d2B380096'});
   };
 
   // File content to be displayed after
