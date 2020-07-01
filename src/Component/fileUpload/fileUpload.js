@@ -36,7 +36,7 @@ class FileUpload extends Component {
     );
     web3.eth.defaultAccount = web3.eth.accounts[0];
 
-    let OrganizationList = new web3.eth.Contract(orgApi);
+    let OrganizationList = new web3.eth.Contract(orgApi,"0xB378B38Aaa8C3992133873931d655aDDb169469e");
     let OrganizationA;
     OrganizationList.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
       (inst) => {
