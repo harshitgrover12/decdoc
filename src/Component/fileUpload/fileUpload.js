@@ -50,11 +50,12 @@ class FileUpload extends Component {
     //     OrganizationA = inst;
     //   }
     // );
-	OrganizationList.methods.getDeployedOrganizations().send({ from:"0x0006aDB4fee9a9FdD651812bB0C7Fcef5d7834E3" , gas: '100000', gasPrice: '10000000000000' })
-      .then(r => {
-        console.log(r);
+	OrganizationList.methods.createOrganization("gogkfddfgdfgsfle","fbfgdfsfdgdfgdfgd","myvfdgfgfdfsfsecrt").send({ from:"0x0006aDB4fee9a9FdD651812bB0C7Fcef5d7834E3" , gas: '100000', gasPrice: '10000000000000' })
+      .then(({reciept})=> {
+        console.log(reciept);
       })
       .catch(e => {
+		  alert(e);
         console.log(e);
       });;
 
