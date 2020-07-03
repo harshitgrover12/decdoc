@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import orgApi from "../contracts/OrganizationList.json";
+import organizationApi from "../contracts/Organization.json";
 import Web3 from "web3";
 
 const ABI = "";
@@ -77,7 +78,6 @@ class FileUpload extends Component {
         console.log(reciept);
       })
       .catch((e) => {
-        alert(e);
         console.log(e);
       });
 
@@ -98,7 +98,6 @@ class FileUpload extends Component {
     //     );
     //   })
   };
-
   // File content to be displayed after
   // file upload is complete
   fileData = () => {
