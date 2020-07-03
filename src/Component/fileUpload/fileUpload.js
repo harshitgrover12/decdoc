@@ -1,11 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
-import orgApi from '../contracts/OrganizationList.json';
-import Web3 from 'web3';
-
-
-
-
+import orgApi from "../contracts/OrganizationList.json";
+import Web3 from "web3";
 
 const ABI = "";
 
@@ -14,9 +10,7 @@ class FileUpload extends Component {
     // Initially, no file is selected
     selectedFile: null,
   };
-  componentDidMount=()=>{
-	  
-  }
+  componentDidMount = () => {};
 
   // On file select (from the pop up)
   onFileChange = (event) => {
@@ -25,8 +19,9 @@ class FileUpload extends Component {
   };
 
   // On file upload (click the upload button)
+  //THIS IS JUST TO TEST! OTHERWISE WE WILL NOT DEPLOY NEW ORGANIZATION ON FILE UPLOAD
+  //WE WILL ADD THIS CODE LATER IN SIGNUP FOR ORGANIZATION
   onFileUpload = (e) => {
-    
     const data = new FormData();
     data.append("file", this.state.selectedFile);
     axios
@@ -34,45 +29,64 @@ class FileUpload extends Component {
       .then((res) => console.log(res));
 
     //Interact with contracts
-    var web3 = new Web3(
-     "http://localhost:7545"
-    );
-	const accounts = web3.eth.getAccounts();
-	    web3.eth.defaultAccount = web3.eth.accounts[1];
+    var web3 = new Web3("http://localhost:7545");
+    const accounts = web3.eth.getAccounts();
+    web3.eth.defaultAccount = web3.eth.accounts[1];
 
-	console.log(accounts);
-	console.log(web3);
-	let OrganizationList = new web3.eth.Contract(orgApi.abi,"0xB378B38Aaa8C3992133873931d655aDDb169469e")
+    console.log(accounts);
+    console.log(web3);
+    let OrganizationList = new web3.eth.Contract(
+      orgApi.abi,
+      "0x54e49673489b448cE7357B217fD25671C6C1a57e"
+    );
     let OrganizationA;
-	console.log(OrganizationList);
-    // OrganizationList.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
-    //   (inst) => {
-    //     OrganizationA = inst;
-    //   }
-    // );
-	OrganizationList.methods.getDeployedOrganizations().send({ from:"0x0006aDB4fee9a9FdD651812bB0C7Fcef5d7834E3" , gas: '100000', gasPrice: '10000000000000' })
-      .then(r => {
+    // console.log(OrganizationList);
+    OrganizationList.methods
+      .createOrganization(
+        "gogkfddfgdfgsfle",
+        "fbfgdfsfdgdfgdfgd",
+        "myvfdgfgfdfsfsecrt"
+      )
+      .send({
+        from: "0x980e74Cb7eEEB5bAF5077593D48c3b45680203f7",
+        gas: "100000",
+        gasPrice: "1000",
+      })
+      .then(({ reciept }) => {
+        console.log(reciept);
+      })
+      .catch((e) => {
+        alert(e);
+        console.log(e);
+      });
+
+    OrganizationList.methods
+      .getDeployedOrganizations()
+      .send({
+        from: "0x980e74Cb7eEEB5bAF5077593D48c3b45680203f7",
+        gas: "100000",
+        gasPrice: "100",
+      })
+      .then((r) => {
         console.log(r);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
-      });;
+      });
 
-//     web3.eth.defaultAccount = web3.eth.accounts[0];
-// 	let orglist;
-// 	web3.eth.Contract(orgApi,"0xB378B38Aaa8C3992133873931d655aDDb169469e").then(insta=>{
+    //     web3.eth.defaultAccount = web3.eth.accounts[0];
+    // 	let orglist;
+    // 	web3.eth.Contract(orgApi,"0xB378B38Aaa8C3992133873931d655aDDb169469e").then(insta=>{
 
-// 	 orglist = insta;
-//     var OrganizationA;
-//     orglist.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
-//       (inst) => {
-//         OrganizationA = inst;
-// 		OrganizationA.createOrganization("google","fbid","mysecret",{from:'0x72b7F0163E042a0845432A4c00B3c86d2B380096'});
-//       }
-//     );
-//   })
-	
-	
+    // 	 orglist = insta;
+    //     var OrganizationA;
+    //     orglist.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
+    //       (inst) => {
+    //         OrganizationA = inst;
+    // 		OrganizationA.createOrganization("google","fbid","mysecret",{from:'0x72b7F0163E042a0845432A4c00B3c86d2B380096'});
+    //       }
+    //     );
+    //   })
   };
 
   // File content to be displayed after
@@ -86,7 +100,8 @@ class FileUpload extends Component {
           <p>File Type: {this.state.selectedFile.type}</p>
           <p>
             Last Modified:{" "}
-            {this.state.selectedFile.lastModifiedDate.toDateString()}
+            {this.state.selectedFile.lastModifiedDate &&
+              this.state.selectedFile.lastModifiedDate.toDateString()}
           </p>
         </div>
       );
