@@ -1,11 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
-import orgApi from '../contracts/OrganizationList.json';
-import Web3 from 'web3';
-
-
-
-
+import orgApi from "../contracts/OrganizationList.json";
+import Web3 from "web3";
 
 const ABI = "";
 
@@ -14,8 +10,45 @@ class FileUpload extends Component {
     // Initially, no file is selected
     selectedFile: null,
   };
-  componentDidMount=()=>{
-	  
+    async componentWillMount() {
+    await this.loadWeb3();
+    await this.loadBlockchainData();
+  }
+
+  async loadWeb3() {
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum);
+      await window.ethereum.enable();
+    } else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider);
+    } else {
+      window.alert(
+        "Non-Ethereum browser detected. You should consider trying MetaMask!"
+      );
+    }
+  }
+
+  async loadBlockchainData() {
+    const web3 = window.web3;
+    // Load account
+    const accounts = await web3.eth.getAccounts();
+    this.setState({ account: accounts[0] });
+
+    console.log("CURRENT ACCOUNT IS: " + this.state.account);
+
+    const networkId = await web3.eth.net.getId();
+    const networkData = orgApi.networks[networkId];
+    console.log(networkData.address);
+    if (networkData) {
+      const OrganizationList = new web3.eth.Contract(orgApi.abi, networkData.address);
+      this.setState({ OrganizationList });
+      console.log(this.state.OrganizationList);
+      this.setState({ GAS: 900000, GAS_PRICE: "20000000000" });
+      // const func = await court.methods.func(params).call()
+      
+    } else {
+      window.alert(" contract not deployed to detected network.");
+    }
   }
 
   // On file select (from the pop up)
@@ -27,25 +60,11 @@ class FileUpload extends Component {
   // On file upload (click the upload button)
   onFileUpload = async(e) => {
     
-    const data = new FormData();
-    data.append("file", this.state.selectedFile);
-    axios
-      .post("http://localhost:3000/filehash", data)
-      .then((res) => console.log(res));
+    
 
     //Interact with contracts
-    var web3 = new Web3(
-     "http://localhost:7545"
-    );
-    let accounts;
-	await web3.eth.getAccounts().then(inst=>{
-   accounts=inst[0];
-  });
-	    
-
-	console.log(accounts);
-	console.log(web3);
-	let OrganizationList = new web3.eth.Contract(orgApi.abi,"0xB378B38Aaa8C3992133873931d655aDDb169469e")
+     const { account, OrganizationList, GAS, GAS_PRICE } = this.state;
+    
     let OrganizationA;
 	console.log(OrganizationList);
     // OrganizationList.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
@@ -53,30 +72,31 @@ class FileUpload extends Component {
     //     OrganizationA = inst;
     //   }
     // );
-	OrganizationList.methods.createOrganization("gogkfddfgdfgsfle","fbfgdfsfdgdfgdfgd","myvfdgfgfdfsfsecrt").send({ from:accounts , gas: '100000', gasPrice: '10000000000000' })
+	await OrganizationList.methods.createOrganization("gogkfhfhfghfddfgdfkjkgsfle","fbhgfjlfgdfsfdgdfgdfgd","myvfdgfhfthtfgfdklfsfsecrt").send({ from:account,gasPrice:GAS_PRICE,gas:GAS})
       .then(({reciept})=> {
         console.log(reciept);
       })
-      .catch(e => {
-		  alert(e);
+      .catch((e) => {
+        alert(e);
         console.log(e);
       });
 
-//     web3.eth.defaultAccount = web3.eth.accounts[0];
-// 	let orglist;
-// 	web3.eth.Contract(orgApi,"0xB378B38Aaa8C3992133873931d655aDDb169469e").then(insta=>{
+   
+      
 
-// 	 orglist = insta;
-//     var OrganizationA;
-//     orglist.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
-//       (inst) => {
-//         OrganizationA = inst;
-// 		OrganizationA.createOrganization("google","fbid","mysecret",{from:'0x72b7F0163E042a0845432A4c00B3c86d2B380096'});
-//       }
-//     );
-//   })
-	
-	
+    //     web3.eth.defaultAccount = web3.eth.accounts[0];
+    // 	let orglist;
+    // 	web3.eth.Contract(orgApi,"0xB378B38Aaa8C3992133873931d655aDDb169469e").then(insta=>{
+
+    // 	 orglist = insta;
+    //     var OrganizationA;
+    //     orglist.at("0xB378B38Aaa8C3992133873931d655aDDb169469e").then(
+    //       (inst) => {
+    //         OrganizationA = inst;
+    // 		OrganizationA.createOrganization("google","fbid","mysecret",{from:'0x72b7F0163E042a0845432A4c00B3c86d2B380096'});
+    //       }
+    //     );
+    //   })
   };
 
   // File content to be displayed after
@@ -90,7 +110,8 @@ class FileUpload extends Component {
           <p>File Type: {this.state.selectedFile.type}</p>
           <p>
             Last Modified:{" "}
-            {this.state.selectedFile.lastModifiedDate.toDateString()}
+            {this.state.selectedFile.lastModifiedDate &&
+              this.state.selectedFile.lastModifiedDate.toDateString()}
           </p>
         </div>
       );
