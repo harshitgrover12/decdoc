@@ -25,7 +25,7 @@ class FileUpload extends Component {
   };
 
   // On file upload (click the upload button)
-  onFileUpload = (e) => {
+  onFileUpload = async(e) => {
     
     const data = new FormData();
     data.append("file", this.state.selectedFile);
@@ -37,8 +37,11 @@ class FileUpload extends Component {
     var web3 = new Web3(
      "http://localhost:7545"
     );
-	const accounts = web3.eth.getAccounts();
-	    web3.eth.defaultAccount = web3.eth.accounts[1];
+    let accounts;
+	await web3.eth.getAccounts().then(inst=>{
+   accounts=inst[0];
+  });
+	    
 
 	console.log(accounts);
 	console.log(web3);
@@ -50,14 +53,14 @@ class FileUpload extends Component {
     //     OrganizationA = inst;
     //   }
     // );
-	OrganizationList.methods.createOrganization("gogkfddfgdfgsfle","fbfgdfsfdgdfgdfgd","myvfdgfgfdfsfsecrt").send({ from:"0x0006aDB4fee9a9FdD651812bB0C7Fcef5d7834E3" , gas: '100000', gasPrice: '10000000000000' })
+	OrganizationList.methods.createOrganization("gogkfddfgdfgsfle","fbfgdfsfdgdfgdfgd","myvfdgfgfdfsfsecrt").send({ from:accounts , gas: '100000', gasPrice: '10000000000000' })
       .then(({reciept})=> {
         console.log(reciept);
       })
       .catch(e => {
 		  alert(e);
         console.log(e);
-      });;
+      });
 
 //     web3.eth.defaultAccount = web3.eth.accounts[0];
 // 	let orglist;
