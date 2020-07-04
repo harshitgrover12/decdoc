@@ -44,7 +44,7 @@ class FileUpload extends Component {
       const OrganizationList = new web3.eth.Contract(orgApi.abi, networkData.address);
       this.setState({ OrganizationList });
       console.log(this.state.OrganizationList);
-      this.setState({ GAS: 900000, GAS_PRICE: "20000000000" });
+      this.setState({ GAS: 900000, GAS_PRICE: "27000000000" });
       // const func = await court.methods.func(params).call()
       
     } else {
