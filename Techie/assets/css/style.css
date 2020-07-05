@@ -669,11 +669,14 @@ section {
   position: relative;
 }
 
-.services .icon-box .icon i {
-  font-size: 36px;
-  transition: 0.5s;
-  position: relative;
-}
+    .services .icon-box .icon h3 {
+        font-size: 36px;
+        transition: 0.5s;
+        color: black;
+        position: relative;
+        
+    }
+
 
 .services .icon-box .icon svg {
   position: absolute;
