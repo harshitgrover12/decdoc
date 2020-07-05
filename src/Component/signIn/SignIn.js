@@ -79,13 +79,13 @@ this.props.history.push('/fileUpload');
         return (
               <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
         <div className="card card0 border-0">
-          <div className="row d-flex">
+                    <div className="row d-flex">
+
             <div className="col-lg-6">
-              <div className="card1 pb-5">
-                <div className="row"> <img src="https://i.imgur.com/CXQmsmF.png" className="logo1" /> </div>
+              <div className="card1 ">
                 <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" className="image" /> </div>
               </div>
-            </div>
+            </div>  
             <div className="col-lg-6">
               <div className="card2 card border-0 px-4 py-5">
                 <div className="row mb-4 px-3">
