@@ -8,16 +8,16 @@ export default class Home extends Component {
           <div className="container-fluid">
             <div className="row justify-content-center">
               <div className="col-xl-9 d-flex align-items-center">
-                <h1 className="logo mr-auto"><a href="index.html">Techie</a></h1>
+                <h1 className="logo mr-auto"><a href="home.js">DEC-DOCS</a></h1>
                 {/* Uncomment below if you prefer to use an image logo */}
                 {/* <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}
                 <nav className="nav-menu d-none d-lg-block">
                   <ul>
                     <li className="active"><a href="index.html">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="/signIn">SignIn/SignUp</a></li>
-                    <li><a href="#team">Team</a></li>
+                    <li><a href="#services">Features</a></li>
+                    
+                    <li><a href="#features">How It Works?</a></li>
                     <li className="drop-down"><a href>Drop Down</a>
                       <ul>
                         <li><a href="#">Drop Down 1</a></li>
@@ -36,10 +36,11 @@ export default class Home extends Component {
                       </ul>
                     </li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="/signIn">SignIn/SignUp</a></li>
                   </ul>
                 </nav>
                 {/* .nav-menu */}
-                <a href="#about" className="get-started-btn scrollto">Get Started</a>
+                
               </div>
             </div>
           </div>
@@ -50,8 +51,9 @@ export default class Home extends Component {
           <div className="container-fluid" data-aos="fade-up">
             <div className="row justify-content-center">
               <div className="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                <h1>Bettter Digital Experience With Techie</h1>
-                <h2>We are team of talanted designers making websites with Bootstrap</h2>
+                <h1>DIGITALIZING YOUR DOCUMENTS</h1>
+                            <h2>We help you verify documents.</h2>
+                            <h2>Making your documents secure than ever.</h2>
                 <div><a href="#about" className="btn-get-started scrollto">Get Started</a></div>
               </div>
               <div className="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay={150}>
@@ -70,14 +72,16 @@ export default class Home extends Component {
                   <img src="assets/img/about.jpg" className="img-fluid" alt="" />
                 </div>
                 <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-                  <h3>Voluptatem dignissimos provident quasi corporis</h3>
-                  <p className="font-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
+                  <h3>Own and share your documents with your consent . </h3>
+                    <p className="font-italic">
+                       We provide you with a BLOCKCHAIN based system  which is intended to address the problem of forgery of 
+                       documents and identity fraud. Helping you to easily prove the validity of your 
+                           identity-based documents .
+                    </p>
                   <ul>
-                    <li><i className="icofont-check-circled" /> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i className="icofont-check-circled" /> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i className="icofont-check-circled" /> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                                    <li><i className="icofont-check-circled" /> Blockchain offers a secured and decentralized solution that puts users in control with the help of a distributed trust model.</li>
+                                    <li><i className="icofont-check-circled" /> The digital records are registered on a blockchain, cryptographically signed, made tamper-proof and shareable. </li>
+                                    <li><i className="icofont-check-circled" /> we allow our users to store their important documents in a decentralized network IPFS.</li>
                   </ul>
                   <a href="#" className="read-more">Read More <i className="icofont-long-arrow-right" /></a>
                 </div>
@@ -91,19 +95,19 @@ export default class Home extends Component {
               <div className="row counters">
                 <div className="col-lg-3 col-6 text-center">
                   <span data-toggle="counter-up">232</span>
-                  <p>Clients</p>
+                  <p>Number of documents verified</p>
                 </div>
                 <div className="col-lg-3 col-6 text-center">
                   <span data-toggle="counter-up">521</span>
-                  <p>Projects</p>
+                  <p>Number of organizations registered</p>
                 </div>
                 <div className="col-lg-3 col-6 text-center">
                   <span data-toggle="counter-up">1,463</span>
-                  <p>Hours Of Support</p>
+                  <p>Number of users</p>
                 </div>
                 <div className="col-lg-3 col-6 text-center">
                   <span data-toggle="counter-up">15</span>
-                  <p>Hard Workers</p>
+                  <p>Satisfied clients</p>
                 </div>
               </div>
             </div>
@@ -113,9 +117,11 @@ export default class Home extends Component {
           <section id="services" className="services section-bg">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
-                <h2>Services</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
-                  quidem hic quas.</p>
+                <h2>Features</h2>
+                            <p>A common BLOCKCHAIN based platform for solving the problem of IDENTITY MANAGEMENT and
+                                         STORING THE DOCUMENTS to maintain the privacy of users,
+                                thereby eliminating the need of issuers to issue a document. </p>
+                            <p>Underway this process,"DEC-DOCS" offers following features.</p>
               </div>
               <div className="row">
                 <div className="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay={100}>
@@ -126,8 +132,8 @@ export default class Home extends Component {
                       </svg>
                       <i className="bx bxl-dribbble" />
                     </div>
-                    <h4><a href>Lorem Ipsum</a></h4>
-                    <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                                    <h4>Adding Digital Signature</h4>
+                                    <p>Registered organizations can issue digitally signed documents to the beholder.</p>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay={200}>
@@ -138,8 +144,10 @@ export default class Home extends Component {
                       </svg>
                       <i className="bx bx-file" />
                     </div>
-                    <h4><a href>Sed Perspiciatis</a></h4>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                                    <h4>Mutual Agreement</h4>
+                                    <p>Registered users can create a digital agreement with each-other to share their documents.
+                                        This agreement shall be legally binding.
+                                    </p>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay={300}>
@@ -150,8 +158,9 @@ export default class Home extends Component {
                       </svg>
                       <i className="bx bx-tachometer" />
                     </div>
-                    <h4><a href>Magni Dolores</a></h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                                    <h4>Storing Documents Safely</h4>
+                                    <p>Registered users will be able to view and store their documents on a decentralized network
+                                        which is in return more secure and reliable.</p>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay={100}>
@@ -160,10 +169,10 @@ export default class Home extends Component {
                       <svg width={100} height={100} viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
                         <path stroke="none" strokeWidth={0} fill="#f5f5f5" d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813" />
                       </svg>
-                      <i className="bx bx-layer" />
+                      <i className="bx bx-fingerprint" />
                     </div>
-                    <h4><a href>Nemo Enim</a></h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                                    <h4>Biometeric Security</h4>
+                                    <p>Our platform will be integrated with biometrics to add on security for our users.</p>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay={200}>
@@ -174,8 +183,8 @@ export default class Home extends Component {
                       </svg>
                       <i className="bx bx-slideshow" />
                     </div>
-                    <h4><a href>Dele Cardo</a></h4>
-                    <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+                                    <h4>Revoking Documents</h4>
+                                    <p>Registred users can revoke their documents which became void due to any reason.</p>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay={300}>
@@ -186,8 +195,8 @@ export default class Home extends Component {
                       </svg>
                       <i className="bx bx-arch" />
                     </div>
-                    <h4><a href>Divera Don</a></h4>
-                    <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+                    <h4>Credibility Of Documents</h4>
+                                    <p>The credibility of documents can be verified easily without need of any middle-men.</p>
                   </div>
                 </div>
               </div>
@@ -198,31 +207,35 @@ export default class Home extends Component {
           <section id="features" className="features">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
-                <h2>Features</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
-                  quidem hic quas.</p>
+                <h2>How It Works?</h2>
+                            <p>We have created a reliable,efficient and secure platform for our clients ensuring 
+                                authentic verification and secure storage.
+                            </p>
+                            <p> 
+                                Our clients can access and use the platform with great ease and comfort as follow.
+                            </p>
               </div>
               <div className="row">
                 <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
                   <div className="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay={100}>
                     <i className="bx bx-receipt" />
-                    <h4>Est labore ad</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    <h4>Get Registered</h4>
+                    <p>If you are a new user,create a new account by filling correct details.Else sign-in.</p>
                   </div>
                   <div className="icon-box mt-5" data-aos="fade-up" data-aos-delay={200}>
                     <i className="bx bx-cube-alt" />
-                    <h4>Harum esse qui</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <h4>If you are an organization.</h4>
+                    <p>One click process to issue digitally signed documents to the beholder.</p>
                   </div>
                   <div className="icon-box mt-5" data-aos="fade-up" data-aos-delay={300}>
                     <i className="bx bx-images" />
-                    <h4>Aut occaecati</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                    <h4>If you are a user.</h4>
+                    <p>Can create leagally binding contracts with others to share your documents.</p>
                   </div>
                   <div className="icon-box mt-5" data-aos="fade-up" data-aos-delay={400}>
                     <i className="bx bx-shield" />
-                    <h4>Beatae veritatis</h4>
-                    <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                    <h4>Storing documents</h4>
+                    <p>Once the issuing organizations uploads the digitally signed document,your documents are stored onto the blockchain.</p>
                   </div>
                 </div>
                 <div className="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay={100}>
@@ -574,22 +587,22 @@ export default class Home extends Component {
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Contact</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
-                  quidem hic quas.</p>
+               
               </div>
               <div className="row">
                 <div className="col-lg-6">
                   <div className="info-box mb-4">
                     <i className="bx bx-map" />
                     <h3>Our Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <p>THAPAR INSITITUE OF ENGINEERING AND TECHNOLOGY</p>
+                                    <p>Patiala,Punjab.</p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6">
                   <div className="info-box  mb-4">
                     <i className="bx bx-envelope" />
                     <h3>Email Us</h3>
-                    <p>contact@example.com</p>
+                    <p>abc@thapar.edu</p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6">
@@ -601,8 +614,9 @@ export default class Home extends Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col-lg-6 ">
-                  <iframe className="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameBorder={0} style={{border: 0, width: '100%', height: '384px'}} allowFullScreen />
+                            <div className="col-lg-6 ">
+                                <iframe className="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6873.6981041417985!2d76.36308986538278!3d30.356348463423032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391028ab86533db5%3A0x93cc1f72eae1c9a8!2sTIET%20-%20Thapar%20Institute%20of%20Engineering%20And%20Technology!5e0!3m2!1sen!2sin!4v1593974454245!5m2!1sen!2sin" frameBorder={0} style={{ border: 0, width: '100%', height: '384px' }} allowFullScreen></iframe>
+                
                 </div>
                 <div className="col-lg-6">
                   <form action="forms/contact.php" method="post" role="form" className="php-email-form">
@@ -644,11 +658,11 @@ export default class Home extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-lg-3 col-md-6 footer-contact">
-                  <h3>Techie</h3>
+                  <h3>DEC-DOCS</h3>
                   <p>
-                    A108 Adam Street <br /> New York, NY 535022<br /> United States <br /><br />
-                    <strong>Phone:</strong> +1 5589 55488 55<br />
-                    <strong>Email:</strong> info@example.com<br />
+                                    THAPAR INSITITUE OF ENGINEERING AND TECHNOLOGY <br /> Patiala,Punjab.
+                                    <strong>Phone:</strong> +1 5589 55488 55<br />
+                    <strong>Email:</strong> abc@thapar.edu<br />
                   </p>
                 </div>
                 <div className="col-lg-2 col-md-6 footer-links">
@@ -661,7 +675,7 @@ export default class Home extends Component {
                     <li><i className="bx bx-chevron-right" /> <a href="#">Privacy policy</a></li>
                   </ul>
                 </div>
-                <div className="col-lg-3 col-md-6 footer-links">
+                <div className="col-lg-2 col-md-6 footer-links">
                   <h4>Our Services</h4>
                   <ul>
                     <li><i className="bx bx-chevron-right" /> <a href="#">Web Design</a></li>
@@ -671,28 +685,26 @@ export default class Home extends Component {
                     <li><i className="bx bx-chevron-right" /> <a href="#">Graphic Design</a></li>
                   </ul>
                 </div>
-                <div className="col-lg-4 col-md-6 footer-newsletter">
+                            {/*<div className="col-lg-4 col-md-6 footer-newsletter">
                   <h4>Join Our Newsletter</h4>
                   <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
                   <form action method="post">
                     <input type="email" name="email" /><input type="submit" defaultValue="Subscribe" />
                   </form>
-                </div>
+                </div>*/}
               </div>
             </div>
           </div>
           <div className="container">
             <div className="copyright-wrap d-md-flex py-4">
               <div className="mr-md-auto text-center text-md-left">
-                <div className="copyright">
-                  © Copyright <strong><span>Techie</span></strong>. All Rights Reserved
-                </div>
+                
                 <div className="credits">
                   {/* All the links in the footer should remain intact. */}
                   {/* You can delete the links only if you purchased the pro version. */}
                   {/* Licensing information: https://bootstrapmade.com/license/ */}
                   {/* Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/techie-free-skin-bootstrap-3/ */}
-                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                 
                 </div>
               </div>
               <div className="social-links text-center text-md-right pt-3 pt-md-0">
