@@ -83,7 +83,7 @@ export default class Home extends Component {
                                     <li><i className="icofont-check-circled" /> The digital records are registered on a blockchain, cryptographically signed, made tamper-proof and shareable. </li>
                                     <li><i className="icofont-check-circled" /> we allow our users to store their important documents in a decentralized network IPFS.</li>
                   </ul>
-                  <a href="#" className="read-more">Read More <i className="icofont-long-arrow-right" /></a>
+                  <a href="/about" className="read-more">Read More <i className="icofont-long-arrow-right" /></a>
                 </div>
               </div>
             </div>
