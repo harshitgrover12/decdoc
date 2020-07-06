@@ -246,7 +246,7 @@ export default class Home extends Component {
           </section>
           {/* End Features Section */}
           {/* ======= Testimonials Section ======= */}
-          <section id="testimonials" className="testimonials section-bg">
+                {/*    <section id="testimonials" className="testimonials section-bg">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Testimonials</h2>
@@ -305,7 +305,7 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
-          </section>
+          </section>*/}
           {/* End Testimonials Section */}
           {/* ======= Portfolio Section ======= */}
           <section id="portfolio" className="portfolio">
@@ -545,7 +545,7 @@ export default class Home extends Component {
                       We at DEC-DOCS provide a solution for your secure identity management .
                       We allow the organizations to issue the documents with the digital signature embedded into it as an e-document to the beholder,thereby eliminating 
                      the need of conventional hardcopies.These documents are saved on a decentralized storage system called IPFS,which is way more secure than what we use now-a-days.
-                                           Users can share their documents with any registered organization with their own csent only.
+                                           Users can share their documents with any registered organization with their own consent only.
 
 
                       </p>
@@ -558,9 +558,13 @@ export default class Home extends Component {
                                         <i className="bx bx-chevron-up icon-close" /></a>
                     <div id="faq-list-2" className="collapse" data-parent=".faq-list">
                       <p>
-                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-                        cursus turpis massa tincidunt dui.
+                        The technology of Blockchain provides a potential solution to the problem outlined 
+                                                                 through enabling people to store data on a blockchain, rather than hackable insecure
+                                                                 servers. Information that is once stored on a blockchain, is cryptographically secured 
+                                                                   and cannot be altered or deleted, thus making massive data breaches very difficult. 
+                                        
                       </p>
+                                        <p>Blockchain is used because it is encrypted, cannot be corrupted and permits the synchronization of data.</p>
                     </div>
                   </li>
                   <li data-aos="fade-up" data-aos-delay={300}>
@@ -570,27 +574,13 @@ export default class Home extends Component {
                                         <i className="bx bx-chevron-up icon-close" /></a>
                     <div id="faq-list-3" className="collapse" data-parent=".faq-list">
                       <p>
-                        Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
-                        molestie at elementum eu facilisis sed odio morbi quis
+                       At DEC-DOCS we assist anyone and everyone who is looking for a secure place to store their documents . 
+                              We help all types of companies  organizations and individuals in issuing authenticate documents.
+                                            DEC-DOCS's clients are from small to large business of all sectors providing them an authenticated way to digatalize their documents . 
                       </p>
                     </div>
                   </li>
-                  <li data-aos="fade-up" data-aos-delay={400}>
-                    <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" href="#faq-list-4" className="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
-                    <div id="faq-list-4" className="collapse" data-parent=".faq-list">
-                      <p>
-                        Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                      </p>
-                    </div>
-                  </li>
-                  <li data-aos="fade-up" data-aos-delay={500}>
-                    <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" href="#faq-list-5" className="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
-                    <div id="faq-list-5" className="collapse" data-parent=".faq-list">
-                      <p>
-                        Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                      </p>
-                    </div>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -674,7 +664,7 @@ export default class Home extends Component {
                 <div className="col-lg-3 col-md-6 footer-contact">
                   <h3>DEC-DOCS</h3>
                   <p>
-                                    THAPAR INSITITUE OF ENGINEERING AND TECHNOLOGY <br /> Patiala,Punjab.
+                                    THAPAR INSITITUE OF ENGINEERING AND TECHNOLOGY <br /> Patiala,Punjab.<br/>
                                     <strong>Phone:</strong> +1 5589 55488 55<br />
                     <strong>Email:</strong> abc@thapar.edu<br />
                   </p>
