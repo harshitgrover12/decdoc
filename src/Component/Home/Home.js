@@ -14,7 +14,7 @@ export default class Home extends Component {
                 <nav className="nav-menu d-none d-lg-block">
                   <ul>
                     <li className="active"><a href="index.html">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Features</a></li>
                     
                     <li><a href="#features">How It Works?</a></li>
@@ -536,15 +536,26 @@ export default class Home extends Component {
               <div className="faq-list">
                 <ul>
                   <li data-aos="fade-up" data-aos-delay={100}>
-                    <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" className="collapse" href="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
+                                    <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" className="collapse" href="#faq-list-1">
+                                        What we do?
+                                        <i className="bx bx-chevron-down icon-show" />
+                                        <i className="bx bx-chevron-up icon-close" /></a>
                     <div id="faq-list-1" className="collapse show" data-parent=".faq-list">
                       <p>
-                        Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                      We at DEC-DOCS provide a solution for your secure identity management .
+                      We allow the organizations to issue the documents with the digital signature embedded into it as an e-document to the beholder,thereby eliminating 
+                     the need of conventional hardcopies.These documents are saved on a decentralized storage system called IPFS,which is way more secure than what we use now-a-days.
+                                           Users can share their documents with any registered organization with their own csent only.
+
+
                       </p>
                     </div>
                   </li>
                   <li data-aos="fade-up" data-aos-delay={200}>
-                    <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" href="#faq-list-2" className="collapsed">Feugiat scelerisque varius morbi enim nunc? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
+                                    <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" href="#faq-list-2" className="collapsed">
+                                        Why Blockchain?
+                                        <i className="bx bx-chevron-down icon-show" />
+                                        <i className="bx bx-chevron-up icon-close" /></a>
                     <div id="faq-list-2" className="collapse" data-parent=".faq-list">
                       <p>
                         Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
@@ -553,7 +564,10 @@ export default class Home extends Component {
                     </div>
                   </li>
                   <li data-aos="fade-up" data-aos-delay={300}>
-                    <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" href="#faq-list-3" className="collapsed">Dolor sit amet consectetur adipiscing elit? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
+                                    <i className="bx bx-help-circle icon-help" /> <a data-toggle="collapse" href="#faq-list-3" className="collapsed">
+                                        Who we serve?
+                                        <i className="bx bx-chevron-down icon-show" />
+                                        <i className="bx bx-chevron-up icon-close" /></a>
                     <div id="faq-list-3" className="collapse" data-parent=".faq-list">
                       <p>
                         Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
