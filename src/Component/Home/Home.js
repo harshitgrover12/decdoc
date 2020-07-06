@@ -8,7 +8,7 @@ export default class Home extends Component {
           <div className="container-fluid">
             <div className="row justify-content-center">
               <div className="col-xl-9 d-flex align-items-center">
-                <h1 className="logo mr-auto"><a href="home.js">DEC-DOCS</a></h1>
+                <h1 className="logo mr-auto"><a href="/">DEC-DOCS</a></h1>
                 {/* Uncomment below if you prefer to use an image logo */}
                 {/* <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}
                 <nav className="nav-menu d-none d-lg-block">
@@ -18,7 +18,8 @@ export default class Home extends Component {
                     <li><a href="#services">Features</a></li>
                     
                     <li><a href="#features">How It Works?</a></li>
-                    <li className="drop-down"><a href>Drop Down</a>
+                    <li><a href="#faq">FAQ</a></li>
+                                    {/*<li className="drop-down"><a href>Drop Down</a>
                       <ul>
                         <li><a href="#">Drop Down 1</a></li>
                         <li className="drop-down"><a href="#">Deep Drop Down</a>
@@ -34,7 +35,7 @@ export default class Home extends Component {
                         <li><a href="#">Drop Down 3</a></li>
                         <li><a href="#">Drop Down 4</a></li>
                       </ul>
-                    </li>
+                    </li>*/}
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="/signIn">SignIn/SignUp</a></li>
                   </ul>
@@ -238,7 +239,7 @@ export default class Home extends Component {
                     <p>Once the issuing organizations uploads the digitally signed document,your documents are stored onto the blockchain.</p>
                   </div>
                 </div>
-                <div className="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay={100}>
+                <div className="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay={500}>
                   <img src="assets/img/features.svg" alt="" className="img-fluid" />
                 </div>
               </div>
@@ -308,7 +309,7 @@ export default class Home extends Component {
           </section>*/}
           {/* End Testimonials Section */}
           {/* ======= Portfolio Section ======= */}
-          <section id="portfolio" className="portfolio">
+                {/* <section id="portfolio" className="portfolio">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Portfolio</h2>
@@ -445,10 +446,10 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
-          </section>
+          </section>*/}
           {/* End Portfolio Section */}
           {/* ======= Pricing Section ======= */}
-          <section id="pricing" className="pricing section-bg">
+                {/* <section id="pricing" className="pricing section-bg">
             <div className="container" data-aos="fade-up">
               <div className="section-title">
                 <h2>Pricing</h2>
@@ -523,7 +524,7 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
-          </section>
+          </section>*}
           {/* End Pricing Section */}
           {/* ======= Frequently Asked Questions Section ======= */}
           <section id="faq" className="faq">
