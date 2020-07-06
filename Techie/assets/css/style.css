@@ -535,6 +535,7 @@ section {
   overflow: hidden;
 }
 
+
 .section-bg {
   background-color: #f9f8ff;
 }
@@ -574,7 +575,6 @@ section {
 .about {
   padding: 120px 0;
 }
-
 .about .content h3 {
   font-weight: 600;
   font-size: 32px;
