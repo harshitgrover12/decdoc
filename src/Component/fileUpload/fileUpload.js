@@ -7,10 +7,7 @@ import Web3 from "web3";
 const ABI = "";
 
 class FileUpload extends Component {
-  state = {
-    // Initially, no file is selected
-    selectedFile: null,
-  };
+  
     async componentWillMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
@@ -61,7 +58,10 @@ class FileUpload extends Component {
   // On file upload (click the upload button)
   onFileUpload = async(e) => {
     
-    
+    const data = new FormData() 
+    data.append('file', this.state.selectedFile)
+		axios.post('http://localhost:3000/filehash',data).then((res)=>console.log(res));
+
 
     //Interact with contracts
      const { account, OrganizationList, GAS, GAS_PRICE } = this.state;
