@@ -1,5 +1,6 @@
 const initState={
     isauthenticated:true,
+    user_role:'',
    
 }
 const rootReducer=(state=initState,action)=>{
@@ -8,6 +9,13 @@ const rootReducer=(state=initState,action)=>{
         return {
             ...state,
             isauthenticated:action.isauthenticated
+        }
+    }
+    if(action.type==='ROLE')
+    {
+        return {
+            ...state,
+            user_role:action.user_role
         }
     }
     
