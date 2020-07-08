@@ -1,62 +1,112 @@
 import React, { Component } from 'react'
 import Nav from '../nav/nav';
-import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    overflow: 'hidden',
-    padding: theme.spacing(0, 3),
-    marginTop:'300px'
+    width: 345,
+    marginTop:'200px',
+    
+    display:'inline-block'
   },
-  paper: {
-    maxWidth: 400,
-    margin: `${theme.spacing(1)}px auto`,
-    padding: theme.spacing(2),
+  media: {
+    height: 140,
   },
 });
+
  class Dash extends Component {
+    
+     handleIssue=(e)=>{
+        e.preventDefault();
+}
       
     render() {
        const {classes}=this.props;
         return (
             <div>
                 <Nav/>
-                <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid container wrap="nowrap" spacing={2}>
-          <Grid item>
-           
-          </Grid>
-          <Grid item xs zeroMinWidth>
-            <Typography noWrap>Issue a certificate</Typography>
-          </Grid>
-        </Grid>
-      </Paper>
-      <Paper className={classes.paper}>
-        <Grid container wrap="nowrap" spacing={2}>
-          <Grid item>
-            
-          </Grid>
-          <Grid item xs>
-            <Typography noWrap>Verify a certificate</Typography>
-          </Grid>
-        </Grid>
-      </Paper>
-      <Paper className={classes.paper}>
-        <Grid container wrap="nowrap" spacing={2}>
-          <Grid item>
-            
-          </Grid>
-          <Grid item xs>
-            <Typography>Upload a document</Typography>
-          </Grid>
-        </Grid>
-      </Paper>
-    </div>
+                <Card className={classes.root} style={{marginLeft:'90px'}}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="/static/images/cards/contemplative-reptile.jpg"
+          title="issue document"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+           Issue a document
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Issue the document to a user 
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+             <Card className={classes.root} style={{marginLeft:'25px'}}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="/static/images/cards/contemplative-reptile.jpg"
+          title="issue document"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+           Verify a document
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Verify the credibility of a document
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+           <Card className={classes.root} style={{marginLeft:'25px'}}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="/static/images/cards/contemplative-reptile.jpg"
+          title="issue document"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+           Upload a document
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Upload a personal document
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+                
             </div>
         )
     }
