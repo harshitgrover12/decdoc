@@ -37,6 +37,7 @@ this.props.history.push('/fileUpload');
         
   this.props.changeuserrole('organization');
     this.props.history.push('/dash');
+    
      
     }
     handleRegisterSubmit=(e)=>{

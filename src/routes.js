@@ -5,7 +5,7 @@ import SignIn from './Component/signIn/SignIn';
 import About from './Component/about/About';
 import Dash from './Component/Dash/Dash';
 import FileUpload from './Component/fileUpload/fileUpload';
-
+import IssueDocument from './Component/Dash/IssueDocument/IssueDocument';
  class Routes extends Component {
     render() {
         return (
@@ -16,6 +16,7 @@ import FileUpload from './Component/fileUpload/fileUpload';
                     <Route exact path='/about' render={(props) => <About{...this.props} />} />
                 <Route exact path='/fileUpload' render={(props)=><FileUpload{...this.props}/>}/>
                  <Route exact path='/dash' render={(props)=><Dash{...this.props}/>}/>
+                        <Route exact path='/issueDocument' render={(props)=><IssueDocument{...this.props}/>}/>
             </Switch>
                 
             </div>
