@@ -157,3 +157,107 @@ a {
         margin: 0px 15px
     }
 }
+
+.team {
+    width: 983px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+}
+
+#team-table table {
+    width: 100%;
+}
+
+#member-title {
+    font-size: 20px;
+    color: #a4215d;
+    padding: 10px;
+}
+
+#member-detail-span {
+    margin: 10px;
+    display: block;
+}
+
+.member-details {
+    padding: 5px;
+    border-top: 2px solid rgb(197, 196, 196);
+    font-size: 17px;
+    transition: 0.5s ease;
+}
+
+.member-details:hover {
+    border: 0;
+    box-shadow: 0 4px 15px grey;
+}
+
+#member-details td {}
+
+#add-new {
+    display: flex;
+    margin-top: 10px;
+}
+
+#add-new-container {
+    width: 70%;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid;
+    transition: .5s ease;
+}
+
+#add-new-container:hover {
+    border: 0;
+    box-shadow: 0 4px 15px grey;
+}
+
+#add-new-container button {
+    border: 0;
+    background-color: #a4215d;
+    color: white;
+    width: 25px;
+    margin: auto;
+    font-size: large;
+    border-radius: 50%;
+}
+
+#add-new-container span {
+    margin-left: 5px;
+}
+
+#mem-options {
+    display: none;
+}
+
+#tik {
+    margin-left: 10px;
+}
+
+#add-new-buttons button {
+    display: block;
+    border: 0;
+    padding: 10px 20px;
+    transition: .5s ease;
+}
+
+#add-new-buttons button:active {
+    transform: scale(0.9);
+}
+
+#add-new-buttons {
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+}
+
+#mem-approved {
+    color: white;
+    background-color: #2ecc71;
+}
+
+#mem-dontapproved {
+    color: white;
+    background-color: #e74c3c;
+}
