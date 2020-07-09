@@ -71,7 +71,7 @@ await organizationlist.methods.issueDocument("harshit@123",hash,"HarshitCompany"
         return (
             <div>
                 <Nav />
-                <div className="containerdoc justify-content-center center" >
+                <div className="containerdoc justify-content-center center " >
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
