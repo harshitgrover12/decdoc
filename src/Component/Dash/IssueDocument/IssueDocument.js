@@ -97,7 +97,7 @@ await organizationlist.methods.issueDocument("harshit@123",hash,"HarshitCompany"
                         </div>
                     </div>
                     <div class="row docpad">
-                        <div class="col-xl-6 col-xl-offset-3 center">
+                        <div class="col-xl-12 col-xl-offset-3 center">
                             {this.fileData()}
                         </div>
                     </div>
