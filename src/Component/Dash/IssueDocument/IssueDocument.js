@@ -71,9 +71,9 @@ await organizationlist.methods.issueDocument("harshit@123",hash,"HarshitCompany"
         return (
             <div>
                 <Nav />
-                <div className="containerdoc justify-content-center" >
+                <div className="containerdoc justify-content-center center" >
                     <div class="row docpad">
-                        <div class="col-xl-6 col-xl-offset-3 center">
+                        <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
                                 <li className="listsli"><i className="icofont-check-circled listsi" /> User id:{this.state.userid}</li>
                                 <li className="listsli"><i className="icofont-check-circled listsi" /> document hash:{this.state.hash}</li>
@@ -82,7 +82,7 @@ await organizationlist.methods.issueDocument("harshit@123",hash,"HarshitCompany"
                         </div>
                     </div>
                     <div class="row docpad">
-                        <div class="col-xl-6 col-xl-offset-3 center">
+                        <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
 					            <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your Documents!</button>
                                 <input type="file" id="fileup" onChange={this.onFileChange}/>
@@ -90,7 +90,7 @@ await organizationlist.methods.issueDocument("harshit@123",hash,"HarshitCompany"
                         </div>
                     </div>
                     <div class="row docpad">
-                        <div class="col-xl-6 col-xl-offset-3 center">
+                        <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
                                 <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Upload</button>
                             </div>
