@@ -22,8 +22,8 @@ export default class Home extends Component {
                     <li><a href="#contact">Contact</a></li>
                                     <li className="drop-down"><a href>SignIn/SignUp</a>
                       <ul>
-                        <li><a href="/signIn">As Individual</a></li>
-                        <li><a href="signIn">As Organization</a></li>
+                        <li><a  onClick={(e)=>{e.preventDefault();this.props.changeuserrole(false);this.props.history.push('/signIn')}}>As Individual</a></li>
+                        <li><a  onClick={(e)=>{this.props.changeuserrole(true);this.props.history.push('/signIn')}}>As Organization</a></li>
                         
                       </ul>
                     </li>

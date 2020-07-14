@@ -24,19 +24,18 @@ class SignIn extends Component {
  
 axios.post('http://localhost:3000/api/auth/signin', {
     username: this.state.username,
-    password:this.state.password
+    password:this.state.password,
+    
   })
   .then(data=>{
     console.log(data); 
 this.props.changelogin(true);
-this.props.history.push('/fileUpload');
+this.props.history.push('/dash');
    
   }).catch((err)=>{
       alert(err);
   });
-        
-  this.props.changeuserrole('organization');
-    this.props.history.push('/dash');
+    
     
      
     }
@@ -44,20 +43,38 @@ this.props.history.push('/fileUpload');
    
    
   e.preventDefault();
-   console.log(this.state.firstname);
-   console.log(this.state.email);
+   
 
      axios.post('http://localhost:3000/api/auth/signup', {
-    firstName:this.state.firstname,
-    lastName:this.state.lastname,
+ 
     email: this.state.email,
     username:this.state.username,
     password:this.state.password,
+    isOrg:this.props.user_role
   })
-  .then(function (response) {
-   console.log(response);
-  }).catch((err)=>alert(err));
-      
+  .then(({data})=> {
+    this.props.changeuserid(data.userData._id);
+    
+    
+  //    organizationlist.methods.createUser("1234","Harshit","secret").send({ from:account})
+  //     .then(({reciept})=> {
+  //       console.log(reciept);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  //   }
+  // }).catch((err)=>alert(err));
+  if(this.props.user_role)
+  {
+    this.props.history.push('/createOrganization');
+  }
+  else
+  {
+    this.props.history.push('/createUser');
+  }
+
+  }).catch((err)=>alert(err));   
 
     
   }
@@ -126,12 +143,9 @@ this.props.history.push('/fileUpload');
                 <div className="row mb-4 px-3"> <small className="font-weight-bold">Don't have an account? <a className="text-danger " onClick={this.handleRegisterClick}>Register</a></small> </div>
               </div>):
               ( <div>
-              <div className="row px-3"> <label className="mb-1">
-                    <h6 className="mb-0 text-sm">First Name</h6>
-                  </label> <input className="mb-4"id="firstname" type="text" name="firstname" placeholder="Enter your first name" ref={(input)=>this.firstname=input}onChange={this.handleChange} /> </div>
-                    <div className="row px-3"> <label className="mb-1">
-                    <h6 className="mb-0 text-sm">Last Name</h6>
-                  </label> <input className="mb-4"id="lastname" type="text" name="lastname" placeholder="Enter your last name" ref={(input)=>this.lastname=input} onChange={this.handleChange} /> </div>
+             
+
+             
                 <div className="row px-3"> <label className="mb-1">
                     <h6 className="mb-0 text-sm">Username</h6>
                   </label> <input className="mb-4" id="username" type="text" name="username" placeholder="Enter your username" ref={(input)=>this.username=input} onChange={this.handleChange}/> </div>

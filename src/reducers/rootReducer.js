@@ -1,10 +1,11 @@
 const initState={
     isauthenticated:true,
-    user_role:'',
+    user_role:false,
     account:'',
     organizationlist:"",
     gas:"",
     gas_price:"",
+    userid:''
    
 }
 const rootReducer=(state=initState,action)=>{
@@ -42,6 +43,13 @@ const rootReducer=(state=initState,action)=>{
             ...state,
             gas:action.gas,
             gas_price:action.gas_price,
+        }
+    }
+    if(action.type==='USERID')
+    {
+        return{
+        ...state,
+        userid:action.userid
         }
     }
     
