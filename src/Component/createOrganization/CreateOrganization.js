@@ -13,26 +13,31 @@ import axios from 'axios'
   
     const {userid}=this.props;
     await organizationlist.methods.createOrganization(this.props.userid,this.state.organizationname,this.state.secret).send({ from:account})
-      .then(({reciept})=> {
+      .then(async({reciept})=> {
          console.log(reciept);
+          let orgIndex;
+       await organizationlist.methods.getOrganization().call((err,res)=>{
+
+        axios.post('http://localhost:3000/createOrganization',{
+           orgName:this.state.organizationname,
+           orgIndex:res,
+           orgSecret:this.state.orgSecret
+       }).then((res)=>{
+          this.props.history.push('/signIn')
+           console.log(res);
+       }).catch((e)=>alert(e)) 
+
+       })
+       .catch((e) => {
+         console.log(e);
+       });
          
        })
        .catch((e) => {
          console.log(e);
        });
-        let orgIndex;
-       await organizationlist.methods.getOrganization().call((err,res)=>{
-         orgIndex=res;  
-       })
-       .catch((e) => {
-         console.log(e);
-       });
-       axios.post('http://localhost:3000/createOrganization',{
-           orgId:this.props.userid,
-           orgIndex:orgIndex
-       }).then((res)=>{
-           console.log(res);
-       }).catch((e)=>alert(e))
+       
+       
     }
      
     render() {

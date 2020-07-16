@@ -5,7 +5,8 @@ const initState={
     organizationlist:"",
     gas:"",
     gas_price:"",
-    userid:''
+    userid:'',
+    userdata:{}
    
 }
 const rootReducer=(state=initState,action)=>{
@@ -52,6 +53,15 @@ const rootReducer=(state=initState,action)=>{
         userid:action.userid
         }
     }
+    if(action.type==='USERDATA')
+    {
+        return{
+            ...state,
+            userdata:action.userdata
+        }
+    }
+    
+
     
     return state;
    

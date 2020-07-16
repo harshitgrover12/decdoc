@@ -46,7 +46,7 @@ this.props.history.push('/dash');
    
 
      axios.post('http://localhost:3000/api/auth/signup', {
- 
+    organizationName:this.state.organizationname,
     email: this.state.email,
     username:this.state.username,
     password:this.state.password,
@@ -144,7 +144,16 @@ this.props.history.push('/dash');
               </div>):
               ( <div>
              
-
+              {
+                this.props.user_role?(
+                  <div>
+                  <div className="row px-3"> <label className="mb-1">
+                    <h6 className="mb-0 text-sm">Organization Name </h6>
+                  </label> <input className="mb-4" id="organizationname" type="text" name="organizationname" placeholder="Enter your username" ref={(input)=>this.organizationname=input} onChange={this.handleChange}/> </div>
+                  </div>
+                ):
+                (<div/>)
+              }
              
                 <div className="row px-3"> <label className="mb-1">
                     <h6 className="mb-0 text-sm">Username</h6>

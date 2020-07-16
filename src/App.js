@@ -65,7 +65,8 @@ const mapStateToProps = state => {
      organizationlist:state.organizationlist,
      gas:state.gas,
      gas_price:state.gas_price,
-     userid:state.userid
+     userid:state.userid,
+     userdata:state.userdata
     
   };
 };
@@ -96,6 +97,10 @@ const mapDispatchToProps = dispatch => {
     changeuserid:(userid)=>dispatch({
       type:'USERID',
       userid:userid
+    }),
+    changeuserdata:(userdata)=>dispatch({
+      type:'USERDATA',
+      userdata:userdata
     })
     }}
 export default compose(
