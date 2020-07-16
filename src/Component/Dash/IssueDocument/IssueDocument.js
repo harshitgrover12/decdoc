@@ -38,7 +38,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
     }).
     catch((e)=>alert(e));
     let orgIndex;
-    axios.post('http://localhost:3000/getOrgIndex',{
+    axios.post('http://localhost:3000/getOrgIndex',{    //make this api that gives me the org index from organization schema in backend
       organizationName:this.props.userdata.organizationName
     }).then((res)=>{
       orgIndex=res;
