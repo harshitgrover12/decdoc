@@ -13,28 +13,49 @@ import axios from 'axios';
   componentDidMount=()=>{
       console.log(this.props);
   }
+  handleChange=(e)=>{
+  this.setState({
+    [e.target.id]:e.target.value
+  })
+  }
   onFileUpload=async(e)=>{
 const {account,organizationlist,gas,gas_price}=this.props;
  const data = new FormData() 
-    data.append('file', this.state.selectedFile)
-		axios.post('http://localhost:3000/filehash',data).then((res)=>console.log(res));
+    data.append('file', this.state.selectedFile);
+    let hash;
+    this.setState({
+      hash:hash
+    })
+    let userId;
+    let userIndex;
+		axios.post('http://localhost:3000/filehash',data).then((res)=>hash=res);
+    axios.post('http://localhost:3000/api/getuser',{
+      username:this.state.username
+    }).then((result)=>{
+      userId=result._id;
+      userIndex=result.userIndex;
 
-        const hash="afb7ad40f25697edaf4f0dd597810067aa65f1efab95eca3b0cf9aa8026d320c";
- await organizationlist.methods.createOrganization("HarshitCompany","1234","secrethai").send({ from:account})
-      .then(({reciept})=> {
-         console.log(reciept);
-       })
-       .catch((e) => {
-         console.log(e);
-       });
-     await organizationlist.methods.createUser("1234","Harshit","secret").send({ from:account})
-      .then(({reciept})=> {
-        console.log(reciept);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-await organizationlist.methods.issueDocument("harshit@123",hash,"HarshitCompany","1234","secrethai").send({ from:account})
+    }).
+    catch((e)=>alert(e));
+    let orgIndex;
+    axios.post('http://localhost:3000/getOrgIndex',{
+      organizationName:this.props.userdata.organizationName
+    }).then((res)=>{
+      orgIndex=res;
+    })
+
+    axios.post('http://localhost:3000/issueDocument',{
+      orgId:this.props.userid,
+      orgIndex:orgIndex,
+      username:this.state.username,
+      userId:userId,
+      userIndex:userIndex,
+      documentHash:hash
+
+    })
+    
+  
+await organizationlist.methods.issueDocument(this.props.userdata.organizationName,hash,this.props.userid,userId,this.state.secret).send({ from:account})
       .then(({reciept})=> {
         console.log(reciept);
       })
@@ -71,13 +92,18 @@ await organizationlist.methods.issueDocument("harshit@123",hash,"HarshitCompany"
             <Nav/> 
             <div style={{marginTop:'200px'}}>
         <ul style={{listStyle:'none'}}>
-        <li>User id:{this.state.userid}</li>
-        <li>document hash:{this.state.hash}</li>
+        <li>Hash:{this.state.hash}</li>
         
+        <div className="row px-3"> <label className="mb-1">
+                    <h6 className="mb-0 text-sm"> Name</h6>
+                  </label> <input className="mb-4" id="username" type="text" name="username" placeholder="Username" ref={(input)=>this.username=input} onChange={this.handleChange}/> </div>
+                        <div className="row px-3"> <label className="mb-1">
+                    <h6 className="mb-0 text-sm">Secret key</h6>
+                  </label> <input id="secret" type="password" name="secret" placeholder="Enter Secret key" ref={(input)=>this.secret=input}onChange={this.handleChange} /> </div>
         </ul>
         <div>
           <input type="file" onChange={this.onFileChange} />
-          <button onClick={this.onFileUpload}>Upload!</button>
+          <button onClick={this.onFileUpload}>Issue the document!</button>
         </div>
         {this.fileData()}
       </div>
