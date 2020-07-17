@@ -12,7 +12,7 @@ import axios from 'axios'
         const {account,organizationlist,gas,gas_price}=this.props;
   
     const {userid}=this.props;
-    await organizationlist.methods.createOrganization(this.props.userid,this.state.organizationname,this.state.secret).send({ from:account})
+    await organizationlist.methods.createOrganization(this.state.organizationname,this.state.secret).send({ from:account})
       .then(async({reciept})=> {
          console.log(reciept);
           let orgIndex;
@@ -21,7 +21,6 @@ import axios from 'axios'
         axios.post('http://localhost:3000/createOrganization',{
            orgName:this.state.organizationname,
            orgIndex:res,
-           orgSecret:this.state.orgSecret
        }).then((res)=>{
           this.props.history.push('/signIn')
            console.log(res);

@@ -20,48 +20,56 @@ import axios from 'axios';
   }
   onFileUpload=async(e)=>{
 const {account,organizationlist,gas,gas_price}=this.props;
- const data = new FormData() 
+ const data = new FormData(); 
     data.append('file', this.state.selectedFile);
     let hash;
-    this.setState({
-      hash:hash
-    })
+    
     let userId;
     let userIndex;
-		axios.post('http://localhost:3000/filehash',data).then((res)=>hash=res);
+    let orgIndex;
+		axios.post('http://localhost:3000/filehash',data).then((res)=>{hash=res;
+    
     axios.post('http://localhost:3000/api/getuser',{
       username:this.state.username
     }).then((result)=>{
-      userId=result._id;
+
       userIndex=result.userIndex;
 
     }).
     catch((e)=>alert(e));
-    let orgIndex;
-    axios.post('http://localhost:3000/getOrgIndex',{    //make this api that gives me the org index from organization schema in backend
+    
+    axios.post('http://localhost:3000/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
       organizationName:this.props.userdata.organizationName
-    }).then((res)=>{
-      orgIndex=res;
-    })
-
-    axios.post('http://localhost:3000/issueDocument',{
+    }).then(async(res)=>{
+      orgIndex=res.data.orgIndex;
+      console.log(orgIndex);
+      await organizationlist.methods.issueDocument(this.props.userdata.organizationName,hash,orgIndex,userIndex,this.state.secret).send({ from:account})
+      .then(async({reciept})=> {
+        console.log(reciept);
+        await organizationlist.methods.getIssueDocument().call((res)=>{
+      axios.post('http://localhost:3000/issueDocument',{
       orgId:this.props.userid,
       orgIndex:orgIndex,
       username:this.state.username,
-      userId:userId,
       userIndex:userIndex,
+      documentIndex:res,
       documentHash:hash
 
-    })
-    
-  
-await organizationlist.methods.issueDocument(this.props.userdata.organizationName,hash,this.props.userid,userId,this.state.secret).send({ from:account})
-      .then(({reciept})=> {
-        console.log(reciept);
+    }).then((res)=>console.log(res)).catch((e)=>alert(e))
+        })
       })
       .catch((e) => {
         console.log(e);
       });
+    }).catch((e)=>alert(e));
+    
+
+    
+    })
+    
+  
+
+    
   }
   fileData = () => {
     if (this.state.selectedFile) {
