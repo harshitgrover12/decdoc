@@ -97,7 +97,8 @@ const {account,organizationlist,gas,gas_price}=this.props;
     render() {
         return (
             <div>
-            <Nav/> 
+                <Nav /> 
+
             <div style={{marginTop:'200px'}}>
         <ul style={{listStyle:'none'}}>
         <li>Hash:{this.state.hash}</li>
@@ -116,7 +117,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
         {this.fileData()}
       </div>
             </div>
-        )
+        ) 
     }
 }
 export default IssueDocument;
