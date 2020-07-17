@@ -89,7 +89,8 @@ await organizationlist.methods.issueDocument(this.props.userdata.organizationNam
     render() {
         return (
             <div>
-            <Nav/> 
+                <Nav /> 
+
             <div style={{marginTop:'200px'}}>
         <ul style={{listStyle:'none'}}>
         <li>Hash:{this.state.hash}</li>
@@ -108,7 +109,7 @@ await organizationlist.methods.issueDocument(this.props.userdata.organizationNam
         {this.fileData()}
       </div>
             </div>
-        )
+        ) 
     }
 }
 export default IssueDocument;
