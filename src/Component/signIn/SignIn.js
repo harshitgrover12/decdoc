@@ -27,8 +27,19 @@ axios.post('http://localhost:3000/api/auth/signin', {
     password:this.state.password,
     
   })
-  .then(data=>{
-    console.log(data); 
+  .then(({data})=>{
+         axios({
+    method: "POST",
+    url: `http://localhost:3000/returnUserDetails`,
+    data: {
+        username:this.state.username
+    },
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      
+    },
+  }).then(({data})=>this.props.changeuserdata(data))
 this.props.changelogin(true);
 this.props.history.push('/dash');
    

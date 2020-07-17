@@ -12,9 +12,18 @@ import axios from 'axios';
         const {account,organizationlist,gas,gas_price}=this.props;
   
     const {userid}=this.props;
-  await organizationlist.methods.createUser(userid,this.state.name,this.state.secret).send({ from:account})
-      .then((resp)=> {
+  await organizationlist.methods.createUser(this.state.name,this.state.secret).send({ from:account})
+      .then(async(resp)=> {
          console.log(resp);
+         await organizationlist.methods.getUser().call((err,res)=>{
+            console.log(res);
+             axios.post('http://localhost:3000/createUser',{
+             username:this.state.name,
+             userIndex:res
+             
+         })
+         })
+        
        })
        .catch((e) => {
          console.log(e);
@@ -31,7 +40,7 @@ import axios from 'axios';
                   </label> <input className="mb-4" id="name" type="text" name="name" placeholder="name" ref={(input)=>this.name=input} onChange={this.handleChange}/> </div>
                 <div className="row px-3"> <label className="mb-1">
                     <h6 className="mb-0 text-sm">Secret key</h6>
-                  </label> <input id="secret" type="password" name="secret" placeholder="Enter Secret key" ref={(input)=>this.secret=input}onChange={this.handleChange} /> </div>
+                  </label> <input id="secret" type="password" name="secret" placeholder="Enter Secret key" ref={(input)=>this.secret=input} onChange={this.handleChange} /> </div>
                             <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center" onClick={this.handleSubmit}>Add to Blockchain!</button> </div>
             </div>
         )
