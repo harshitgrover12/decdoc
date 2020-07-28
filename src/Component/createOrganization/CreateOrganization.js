@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import '../Dash/IssueDocument/issueDocument.css';
+import Nav from '../nav/nav';
  class CreateOrganization extends Component {
      handleChange=(e)=>{
          this.setState(
@@ -42,14 +44,34 @@ import axios from 'axios'
     render() {
         return (
             <div>
-                 <div className="row px-3"> <label className="mb-1">
-                    <h6 className="mb-0 text-sm">Organization Name</h6>
-                  </label> <input className="mb-4" id="organizationname" type="text" name="organizationname" placeholder="Enter your username" ref={(input)=>this.organizationname=input} onChange={this.handleChange}/> </div>
-                <div className="row px-3"> <label className="mb-1">
-                    <h6 className="mb-0 text-sm">Secret key</h6>
-                  </label> <input id="secret" type="password" name="secret" placeholder="Enter Secret key" ref={(input)=>this.secret=input}onChange={this.handleChange} /> </div>
-                            <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center" onClick={this.handleSubmit}>Add to Blockchain!</button> </div>
-            </div>
+                <Nav />
+                <div className="containerdoc justify-content-center center " >
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center labels">
+                            <label className="mb-1">
+                                <h6 className="mb-0 text-md">Organization Name</h6>
+                            </label> <input className="mb-4" id="organizationname" type="text" name="organizationname" placeholder="Enter your username" ref={(input) => this.organizationname = input} onChange={this.handleChange} />
+
+                        </div>
+                    </div>
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center labels">
+                            <label className="mb-1">
+                                <h6 className="mb-0 text-md">Secret key</h6>
+                            </label> <input id="secret" type="password" name="secret" placeholder="Enter Secret key" ref={(input) => this.secret = input} onChange={this.handleChange} /> </div>
+
+                        </div>
+                   
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            <div class="btn-container">
+                                <button type="submit" class="btn btn-primary btn-lg" onClick={this.handleSubmit}>Add to Blockchain!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
         )
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import axios from 'axios';
+import './issueDocument.css';
  class IssueDocument extends Component {
      state = {
     // Initially, no file is selected
@@ -100,26 +101,88 @@ const {account,organizationlist,gas,gas_price}=this.props;
     render() {
         return (
             <div>
-                <Nav /> 
+                <Nav />
+                <div className="containerdoc justify-content-center center " >
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            <ul className="lists">
+                                <li className="listsli"><i className="icofont-check-circled listsi" /> User id:{this.state.userid}</li>
+                                <li className="listsli"><i className="icofont-check-circled listsi" /> document hash:{this.state.hash}</li>
 
-            <div style={{marginTop:'200px'}}>
-        <ul style={{listStyle:'none'}}>
-        <li>Hash:{this.state.hash}</li>
-        
-        <div className="row px-3"> <label className="mb-1">
-                    <h6 className="mb-0 text-sm"> Name</h6>
-                  </label> <input className="mb-4" id="username" type="text" name="username" placeholder="Username" ref={(input)=>this.username=input} onChange={this.handleChange}/> </div>
-                        <div className="row px-3"> <label className="mb-1">
-                    <h6 className="mb-0 text-sm">Secret key</h6>
-                  </label> <input id="secret" type="password" name="secret" placeholder="Enter Secret key" ref={(input)=>this.secret=input}onChange={this.handleChange} /> </div>
-        </ul>
-        <div>
-          <input type="file" onChange={this.onFileChange} />
-          <button onClick={this.onFileUpload}>Issue the document!</button>
-        </div>
-        {this.fileData()}
-      </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            <div class="btn-container">
+                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your Documents!</button>
+                                <input type="file" id="fileup" onChange={this.onFileChange} />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            <div class="btn-container">
+                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            {this.fileData()}
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+            /* 
+              <div>
+                <Nav />
+                <div className="containerdoc justify-content-center center " >
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            <ul className="lists">
+                                <li className="listsli"><i className="icofont-check-circled listsi" /> User id:{this.state.userid}</li>
+                                <li className="listsli"><i className="icofont-check-circled listsi" /> document hash:{this.state.hash}</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            <div class="btn-container">
+					            <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your Documents!</button>
+                                <input type="file" id="fileup" onChange={this.onFileChange}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            <div class="btn-container">
+                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                            {this.fileData()}
+                        </div>
+                    </div>
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             */
+           
         ) 
     }
 }

@@ -7,6 +7,9 @@
 .center {
     text-align: center;
 }
+.labels{
+    padding:0 50px;
+}
 .lists {
     list-style: none;
     padding: 0;

@@ -178,17 +178,13 @@ this.props.history.push('/dash');
                 <div className="row px-3 mb-4">
                   <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label htmlFor="chk1" className="custom-control-label text-sm">Remember me</label> </div> 
                 </div>
-                <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center" onClick={this.handleRegisterSubmit}>Register</button> </div>
+                <div className="row mb-3 px-3"> <button type="submit" className="btn btn-primary btn-lg" onClick={this.handleRegisterSubmit}>Register</button> </div>
                 <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account? <a className="text-danger" onClick={this.handleLoginClick}>Login</a></small> </div>
               </div>)}
               </div>
             </div>
           </div>
-          <div className="bg-blue py-4">
-            <div className="row px-3"> <small className="ml-4 ml-sm-5 mb-2">Copyright © 2019. All rights reserved.</small>
-              <div className="social-contact ml-4 ml-sm-auto"> <span className="fa fa-facebook mr-4 text-sm" /> <span className="fa fa-google-plus mr-4 text-sm" /> <span className="fa fa-linkedin mr-4 text-sm" /> <span className="fa fa-twitter mr-4 mr-sm-5 text-sm" /> </div>
-            </div>
-          </div>
+         
         </div>
       </div>
         )
