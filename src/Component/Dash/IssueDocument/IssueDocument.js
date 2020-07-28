@@ -27,13 +27,14 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
-		axios.post('http://localhost:3000/filehash',data).then((res)=>{hash=res;
+		axios.post('http://localhost:3000/filehash',data).then((res)=>{hash=res.data.documentHash;
     
     axios.post('http://localhost:3000/api/getuser',{
       username:this.state.username
-    }).then((result)=>{
-
-      userIndex=result.userIndex;
+    }).then(({data})=>{
+      userIndex=data.userData.userIndex
+      console.log(data.userData.userIndex);
+      
 
     }).
     catch((e)=>alert(e));
@@ -42,11 +43,11 @@ const {account,organizationlist,gas,gas_price}=this.props;
       organizationName:this.props.userdata.organizationName
     }).then(async(res)=>{
       orgIndex=res.data.orgIndex;
-      console.log(orgIndex);
+      console.log(this.props.userdata.organizationName,hash,orgIndex,userIndex,this.state.secret);
       await organizationlist.methods.issueDocument(this.props.userdata.organizationName,hash,orgIndex,userIndex,this.state.secret).send({ from:account})
       .then(async({reciept})=> {
         console.log(reciept);
-        await organizationlist.methods.getIssueDocument().call((res)=>{
+        await organizationlist.methods.getIssueDocument().call((err,res)=>{
       axios.post('http://localhost:3000/issueDocument',{
       orgId:this.props.userid,
       orgIndex:orgIndex,
@@ -55,13 +56,15 @@ const {account,organizationlist,gas,gas_price}=this.props;
       documentIndex:res,
       documentHash:hash
 
-    }).then((res)=>console.log(res)).catch((e)=>alert(e))
+    }).then((res)=>console.log(res)).catch((e)=>console.log('get me issue'+e))
         })
+       
       })
       .catch((e) => {
-        console.log(e);
+        console.log('contract me issue'+e);
       });
-    }).catch((e)=>alert(e));
+    }).catch((e)=>{console.log('main error');
+    console.log(e)});
     
 
     
