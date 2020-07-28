@@ -14,10 +14,12 @@ import Nav from '../nav/nav';
         const {account,organizationlist,gas,gas_price}=this.props;
   
     const {userid}=this.props;
+    console.log(organizationlist);
     await organizationlist.methods.createOrganization(this.state.organizationname,this.state.secret).send({ from:account})
       .then(async({reciept})=> {
          console.log(reciept);
           let orgIndex;
+          
        await organizationlist.methods.getOrganization().call((err,res)=>{
 
         axios.post('http://localhost:3000/createOrganization',{
@@ -42,6 +44,12 @@ import Nav from '../nav/nav';
     }
      
     render() {
+        if(this.props===null||!this.props)
+        {
+            console.log("props ka pangea");
+        }
+        else
+        {
         return (
             <div>
                 <Nav />
@@ -65,7 +73,7 @@ import Nav from '../nav/nav';
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button type="submit" class="btn btn-primary btn-lg" onClick={this.handleSubmit}>Add to Blockchain!</button>
+                                <button type="submit" class="btn btn-primary btn-lg" onClick={(e)=>this.handleSubmit(e)}>Add to Blockchain!</button>
                             </div>
                         </div>
                     </div>
@@ -73,6 +81,7 @@ import Nav from '../nav/nav';
 
                 </div>
         )
+        }
     }
 }
 export default CreateOrganization;

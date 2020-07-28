@@ -36,7 +36,7 @@ class App extends Component {
 
     const networkId = await web3.eth.net.getId();
     const networkData = orgApi.networks[networkId];
-    console.log(networkData.address);
+    console.log(networkData);
     if (networkData) {
       const OrganizationList = new web3.eth.Contract(orgApi.abi, networkData.address);
       this.props.changecontract(OrganizationList);

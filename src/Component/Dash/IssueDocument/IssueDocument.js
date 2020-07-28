@@ -28,11 +28,12 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
-		axios.post('http://localhost:3000/filehash',data).then((res)=>{hash=res.data.documentHash;
+		await axios.post('http://localhost:3000/filehash',data).then(async(res)=>{hash=res.data.documentHash;
     
-    axios.post('http://localhost:3000/api/getuser',{
+    await axios.post('http://localhost:3000/api/getuser',{
       username:this.state.username
     }).then(({data})=>{
+      console.log(data);
       userIndex=data.userData.userIndex
       console.log(data.userData.userIndex);
       
@@ -43,6 +44,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
     axios.post('http://localhost:3000/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
       organizationName:this.props.userdata.organizationName
     }).then(async(res)=>{
+      console.log("orgindex ka response",res);
       orgIndex=res.data.orgIndex;
       console.log(this.props.userdata.organizationName,hash,orgIndex,userIndex,this.state.secret);
       await organizationlist.methods.issueDocument(this.props.userdata.organizationName,hash,orgIndex,userIndex,this.state.secret).send({ from:account})
@@ -106,8 +108,9 @@ const {account,organizationlist,gas,gas_price}=this.props;
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
-                                <li className="listsli"><i className="icofont-check-circled listsi" /> User id:{this.state.userid}</li>
-                                <li className="listsli"><i className="icofont-check-circled listsi" /> document hash:{this.state.hash}</li>
+                                <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input}/>
+                                  <input type="password" id="secret"name="secret"placeholder="enter secret" onChange={this.handleChange} ref={(input)=>this.secret=input}/>
+                                <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>
                         </div>
