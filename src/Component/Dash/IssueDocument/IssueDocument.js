@@ -57,8 +57,8 @@ const {account,organizationlist,gas,gas_price}=this.props;
       username:this.state.username,
       userIndex:userIndex,
       documentIndex:res,
-      documentHash:hash
-
+      documentHash:hash,
+      private_key:this.state.private_key
     }).then((res)=>console.log(res)).catch((e)=>console.log('get me issue'+e))
         })
        
@@ -110,6 +110,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
                             <ul className="lists">
                                 <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input}/>
                                   <input type="password" id="secret"name="secret"placeholder="enter secret" onChange={this.handleChange} ref={(input)=>this.secret=input}/>
+                                  <input type="password" id="private_key"name="private_key"placeholder="enter private key" onChange={this.handleChange} ref={(input)=>this.private_key=input}/>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>
