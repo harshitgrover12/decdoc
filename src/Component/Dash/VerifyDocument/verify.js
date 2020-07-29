@@ -29,10 +29,18 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userIndex;
     let orgIndex;
 		await axios.post('http://localhost:3000/filehash',data).then(async(res)=>{hash=res.data.documentHash;
-        console.log(hash);
+        this.setState({hash:hash})
         }
         )
-    
+    axios.post('http://localhost:3000/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(res=>{
+      console.log(res);
+      if(res.data.msg==="Valid file"){
+        console.log("file valid")
+      }
+      else{
+        console.log("Invalid File")
+      }
+    })
     // await axios.post('http://localhost:3000/api/getuser',{
     //   username:this.state.username
     // }).then(({data})=>{
@@ -84,7 +92,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
       return (
         <div>
           <br />
-          <h4>Choose before Pressing the Upload button</h4>
+          <h4>Choose the file to verify</h4>
         </div>
       );
     }
@@ -97,9 +105,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
-                                <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input}/>
-                                  <input type="password" id="secret"name="secret"placeholder="enter secret" onChange={this.handleChange} ref={(input)=>this.secret=input}/>
-                                  <input type="password" id="private_key"name="private_key"placeholder="enter private key" onChange={this.handleChange} ref={(input)=>this.private_key=input}/>
+                                <input type="password" id="public_key"name="public_key" placeholder="enter public_key" onChange={this.handleChange} ref={(input)=>this.public_key=input}/>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>
