@@ -51,6 +51,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
       .then(async({reciept})=> {
         console.log(reciept);
         await organizationlist.methods.getIssueDocument().call((err,res)=>{
+          console.log(this.state.private_key);
       axios.post('http://localhost:3000/issueDocument',{
       orgId:this.props.userid,
       orgIndex:orgIndex,

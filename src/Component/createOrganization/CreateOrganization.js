@@ -3,6 +3,10 @@ import axios from 'axios';
 import '../Dash/IssueDocument/issueDocument.css';
 import Nav from '../nav/nav';
  class CreateOrganization extends Component {
+     state={
+         afterclick:false,
+         private_key:""
+     }
      handleChange=(e)=>{
          this.setState(
              {
@@ -26,7 +30,11 @@ import Nav from '../nav/nav';
            orgName:this.state.organizationname,
            orgIndex:res,
        }).then((res)=>{
-          this.props.history.push('/signIn')
+           this.setState({
+           afterclick:true,
+           private_key:res.private_key
+       })
+        //   this.props.history.push('/signIn')
            console.log(res);
        }).catch((e)=>alert(e)) 
 
@@ -39,6 +47,7 @@ import Nav from '../nav/nav';
        .catch((e) => {
          console.log(e);
        });
+       
        
        
     }
@@ -77,6 +86,16 @@ import Nav from '../nav/nav';
                             </div>
                         </div>
                     </div>
+                    {
+                    this.state.afterclick?(
+                        <div>
+                <h3>Private key(Copy and store it in a safe position)</h3>
+                <p>{this.state.private_key}</p>
+                </div>
+                    ):
+                    (<div/>)
+                
+                    }
                 </div>
 
                 </div>
