@@ -7,6 +7,7 @@ import Dash from './Component/Dash/Dash';
 import IssueDocument from './Component/Dash/IssueDocument/IssueDocument';
 import CreateOrganization from './Component/createOrganization/CreateOrganization';
 import CreateUser from './Component/createUser/CreateUser';
+import VerifyDocument from './Component/Dash/VerifyDocument/verify';
  class Routes extends Component {
     render() {
         return (
@@ -19,6 +20,7 @@ import CreateUser from './Component/createUser/CreateUser';
                 <Route exact path='/issueDocument' render={(props)=><IssueDocument{...this.props}/>}/>
                 <Route exact path='/createOrganization' render={(props)=><CreateOrganization{...this.props}/>}/>
                 <Route exact path='/createUser' render={(props)=><CreateUser{...this.props}/>}/>
+                 <Route exact path='/verifyDocument'render={(props)=><VerifyDocument{...this.props}/>}/>
             </Switch>
                 
             </div>

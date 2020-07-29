@@ -24,6 +24,10 @@ import Typography from '@material-ui/core/Typography';
      e.preventDefault();
      this.props.history.push('/issueDocument');
  }
+ handleVerify=(e)=>{
+   e.preventDefault();
+   this.props.history.push('verifyDocument');
+ }
     render() {
         const {classes}=this.props;
         return (
@@ -121,7 +125,7 @@ import Typography from '@material-ui/core/Typography';
                                     <h4>Issue a document to the beholder</h4>
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay={200}>
+                            <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay={200} onClick={this.handleVerify} >
                                 <div className="icon-box iconbox-orange ">
                                     <div className="icon">
                                         <svg width={100} height={100} viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
