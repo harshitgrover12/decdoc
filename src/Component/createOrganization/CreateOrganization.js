@@ -30,9 +30,10 @@ import Nav from '../nav/nav';
            orgName:this.state.organizationname,
            orgIndex:res,
        }).then((res)=>{
+           console.log(res)
            this.setState({
            afterclick:true,
-           private_key:res.private_key
+           private_key:res.data.private_key
        })
         //   this.props.history.push('/signIn')
            console.log(res);
@@ -90,7 +91,8 @@ import Nav from '../nav/nav';
                     this.state.afterclick?(
                         <div>
                 <h3>Private key(Copy and store it in a safe position)</h3>
-                <p>{this.state.private_key}</p>
+                <textarea class="form-control" id="describeProposal" rows="10" value={this.state.private_key} style={{border:'2px solid #e9eaea',width:'900px'}}></textarea>
+                <div className="row mb-3 px-3"> <button className="btn btn-primary btn-lg" onClick={()=>this.props.history.push("/signIn")}>Sign in</button> </div>
                 </div>
                     ):
                     (<div/>)
