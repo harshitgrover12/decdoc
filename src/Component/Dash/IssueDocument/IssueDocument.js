@@ -59,6 +59,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
       userIndex:userIndex,
       documentIndex:res,
       documentHash:hash,
+      organizationName:this.props.userdata.organizationName,
       private_key:this.state.private_key
     }).then((res)=>console.log(res)).catch((e)=>console.log('get me issue'+e))
         })

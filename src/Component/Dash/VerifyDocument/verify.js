@@ -32,15 +32,28 @@ const {account,organizationlist,gas,gas_price}=this.props;
         this.setState({hash:hash})
         }
         )
-    axios.post('http://localhost:3000/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(res=>{
+    await axios.post('http://localhost:3000/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(async res=>{
       console.log(res);
       if(res.data.msg==="Valid file"){
-        console.log("file valid")
+        await organizationlist.methods.verifyDocument(res.data.doc.organizationName,res.data.doc.orgIndex,res.data.doc.userIndex,res.data.doc.documentIndex,res.data.doc.documentHash)
+        .call((err,res)=> {
+          console.log(res);
+          if(err){
+            console.log(err);
+          }
+          else if(res){
+            console.log("Valid File")
+          }
+          else{
+            console.log("Invalid File")
+          }
+        })
       }
       else{
         console.log("Invalid File")
       }
     })
+
     // await axios.post('http://localhost:3000/api/getuser',{
     //   username:this.state.username
     // }).then(({data})=>{
