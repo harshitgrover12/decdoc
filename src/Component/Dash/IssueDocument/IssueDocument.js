@@ -28,9 +28,9 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
-		await axios.post('/filehash',data).then(async(res)=>{hash=res.data.documentHash;
+		await axios.post('https://mysterious-temple-37666.herokuapp.com/filehash',data).then(async(res)=>{hash=res.data.documentHash;
     
-    await axios.post('/api/getuser',{
+    await axios.post('https://mysterious-temple-37666.herokuapp.com/api/getuser',{
       username:this.state.username
     }).then(({data})=>{
       console.log(data);
@@ -41,7 +41,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
     }).
     catch((e)=>alert(e));
     
-    axios.post('/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
+    axios.post('https://mysterious-temple-37666.herokuapp.com/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
       organizationName:this.props.userdata.organizationName
     }).then(async(res)=>{
       console.log("orgindex ka response",res);
@@ -52,7 +52,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
         console.log(reciept);
         await organizationlist.methods.getIssueDocument().call((err,res)=>{
           console.log(this.state.private_key);
-      axios.post('/issueDocument',{
+      axios.post('https://mysterious-temple-37666.herokuapp.com/issueDocument',{
       orgId:this.props.userid,
       orgIndex:orgIndex,
       username:this.state.username,

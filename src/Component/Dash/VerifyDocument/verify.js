@@ -28,11 +28,11 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
-		await axios.post('/filehash',data).then(async(res)=>{hash=res.data.documentHash;
+		await axios.post('https://mysterious-temple-37666.herokuapp.com/filehash',data).then(async(res)=>{hash=res.data.documentHash;
         this.setState({hash:hash})
         }
         )
-    await axios.post('/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(async res=>{
+    await axios.post('https://mysterious-temple-37666.herokuapp.com/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(async res=>{
       console.log(res);
       if(res.data.msg==="Valid file"){
         await organizationlist.methods.verifyDocument(res.data.doc.organizationName,res.data.doc.orgIndex,res.data.doc.userIndex,res.data.doc.documentIndex,res.data.doc.documentHash)

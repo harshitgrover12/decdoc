@@ -19,7 +19,7 @@ import Nav from '../nav/nav';
          console.log(resp);
          await organizationlist.methods.getUser().call((err,res)=>{
             console.log(res);
-             axios.post('/createUser',{
+             axios.post('https://mysterious-temple-37666.herokuapp.com/createUser',{
              username:this.state.name,
              userIndex:res
              

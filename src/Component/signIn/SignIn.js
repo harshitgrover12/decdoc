@@ -22,7 +22,7 @@ class SignIn extends Component {
        
         
  
-axios.post('/api/auth/signin', {
+axios.post('https://mysterious-temple-37666.herokuapp.com/api/auth/signin', {
     username: this.state.username,
     password:this.state.password,
     
@@ -56,7 +56,7 @@ this.props.history.push('/dash');
   e.preventDefault();
    
 
-     axios.post('/api/auth/signup', {
+     axios.post('https://mysterious-temple-37666.herokuapp.com/api/auth/signup', {
     organizationName:this.state.organizationname,
     email: this.state.email,
     username:this.state.username,

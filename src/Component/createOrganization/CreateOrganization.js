@@ -26,7 +26,7 @@ import Nav from '../nav/nav';
           
        await organizationlist.methods.getOrganization().call((err,res)=>{
 
-        axios.post('/createOrganization',{
+        axios.post('https://mysterious-temple-37666.herokuapp.com/createOrganization',{
            orgName:this.state.organizationname,
            orgIndex:res,
        }).then((res)=>{
