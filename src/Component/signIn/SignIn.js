@@ -18,7 +18,7 @@ class SignIn extends Component {
      handleLoginSubmit=(e)=>{
        e.preventDefault();
         
-       alert(this.state.email);
+       
        
         
  
@@ -30,7 +30,7 @@ axios.post('https://mysterious-temple-37666.herokuapp.com/api/auth/signin', {
   .then(({data})=>{
          axios({
     method: "POST",
-    url: `/returnUserDetails`,
+    url: `https://mysterious-temple-37666.herokuapp.com/returnUserDetails`,
     data: {
         username:this.state.username
     },

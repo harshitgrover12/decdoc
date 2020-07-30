@@ -13,7 +13,7 @@ import Options from './Options/Options';
         
         return (
             <div>
-              <Nav/> 
+              <Nav{...this.props}/> 
               <Options{...this.props} /> 
               
             </div>

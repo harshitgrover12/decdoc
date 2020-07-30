@@ -105,7 +105,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
     render() {
         return (
             <div>
-                <Nav />
+                <Nav {...this.props}/>
                 <div className="containerdoc justify-content-center center " >
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">

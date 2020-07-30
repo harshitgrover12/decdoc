@@ -1,7 +1,7 @@
 import React from 'react';
 
 
- const Nav = () => {
+ const Nav = (props) => {
   
     return (
         <div>
@@ -22,7 +22,7 @@ import React from 'react';
                         <li><a href="/documents">Documents</a></li> 
                       </ul>
                     </li>
-                     <li><a >Sign Out</a></li>
+                     <li><a onClick={(e)=>props.history.push('/')}>Sign Out</a></li>
                     
                     
                   </ul>

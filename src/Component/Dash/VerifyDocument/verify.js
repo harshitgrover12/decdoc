@@ -6,6 +6,8 @@ import axios from 'axios';
      state = {
     // Initially, no file is selected
     selectedFile: null,
+    status:false,
+    afterReq:false
   };
     onFileChange = (event) => {
     // Update the state
@@ -13,6 +15,19 @@ import axios from 'axios';
   };
   componentDidMount=()=>{
       console.log(this.props);
+  }
+  onPublic=(e)=>{
+    console.log(this.state.orgName);
+        axios.post('https://mysterious-temple-37666.herokuapp.com/returnOrgDetails',{
+            orgName:this.state.orgName
+        
+  }).then((res)=>{
+      console.log(res.data);
+      this.setState({
+        public_key:res.data.public_key,
+        afterReq:true
+      })
+    })
   }
   handleChange=(e)=>{
   this.setState({
@@ -34,6 +49,9 @@ const {account,organizationlist,gas,gas_price}=this.props;
         )
     await axios.post('https://mysterious-temple-37666.herokuapp.com/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(async res=>{
       console.log(res);
+      this.setState({
+        status:true
+      })
       if(res.data.msg==="Valid file"){
         await organizationlist.methods.verifyDocument(res.data.doc.organizationName,res.data.doc.orgIndex,res.data.doc.userIndex,res.data.doc.documentIndex,res.data.doc.documentHash)
         .call((err,res)=> {
@@ -88,7 +106,10 @@ const {account,organizationlist,gas,gas_price}=this.props;
     
   }
   fileData = () => {
+    let ans="not verified"
     if (this.state.selectedFile) {
+      if(this.state.status)
+      ans="verified"
       return (
         <div>
           <h2>File Details:</h2>
@@ -99,6 +120,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
             {this.state.selectedFile.lastModifiedDate &&
               this.state.selectedFile.lastModifiedDate.toDateString()}
           </p>
+           <p style={{fontWeight:'bold'}}>Authenticity of file:{ans}</p>
         </div>
       );
     } else {
@@ -113,12 +135,19 @@ const {account,organizationlist,gas,gas_price}=this.props;
     render() {
         return (
             <div>
-                <Nav />
+                <Nav{...this.props} />
                 <div className="containerdoc justify-content-center center " >
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
-                                <input type="password" id="public_key"name="public_key" placeholder="enter public_key" onChange={this.handleChange} ref={(input)=>this.public_key=input}/>
+                                <input type="input" id="orgName"name="orgName" placeholder="enter organization to find public key" onChange={this.handleChange} ref={(input)=>this.orgName=input} style={{marginLeft:'30px',width:'500px'}}/>
+                                <button style={{pointer:'cursor',display:'inline-block'}}class="btn btn-primary btn-lg" onClick={this.onPublic}>Search</button>
+                                {
+                                  this.state.afterReq ?(
+                                <textarea class="form-control" id="public_key" rows="9" value={this.state.public_key} ref={(input)=>this.public_key=input}style={{border:'2px solid #e9eaea',width:'900px',marginLeft:'290px'}}></textarea>
+                                  ):
+                                  (<div/>)
+                                }
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>
@@ -127,7 +156,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your Documents!</button>
+                                <button type="button" id="btnup" class="btn btn-primary btn-lg" style={{cursor:'pointer'}}>Browse for your Documents!</button>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
                             </div>
                         </div>
@@ -144,6 +173,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
                             {this.fileData()}
                         </div>
                     </div>
+                    
                 </div>
             </div>
 
