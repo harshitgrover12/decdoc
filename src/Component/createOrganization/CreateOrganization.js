@@ -26,7 +26,7 @@ import Nav from '../nav/nav';
           
        await organizationlist.methods.getOrganization().call((err,res)=>{
 
-        axios.post('http://localhost:3000/createOrganization',{
+        axios.post('/createOrganization',{
            orgName:this.state.organizationname,
            orgIndex:res,
        }).then((res)=>{

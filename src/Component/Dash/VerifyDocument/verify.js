@@ -28,11 +28,11 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
-		await axios.post('http://localhost:3000/filehash',data).then(async(res)=>{hash=res.data.documentHash;
+		await axios.post('/filehash',data).then(async(res)=>{hash=res.data.documentHash;
         this.setState({hash:hash})
         }
         )
-    await axios.post('http://localhost:3000/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(async res=>{
+    await axios.post('/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(async res=>{
       console.log(res);
       if(res.data.msg==="Valid file"){
         await organizationlist.methods.verifyDocument(res.data.doc.organizationName,res.data.doc.orgIndex,res.data.doc.userIndex,res.data.doc.documentIndex,res.data.doc.documentHash)
@@ -54,7 +54,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
       }
     })
 
-    // await axios.post('http://localhost:3000/api/getuser',{
+    // await axios.post('/api/getuser',{
     //   username:this.state.username
     // }).then(({data})=>{
     //   console.log(data);
@@ -65,7 +65,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
     // }).
     // catch((e)=>alert(e));
     
-    // axios.post('http://localhost:3000/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
+    // axios.post('/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
     //   organizationName:this.props.userdata.organizationName
     // }).then(async(res)=>{
     //   console.log("orgindex ka response",res);

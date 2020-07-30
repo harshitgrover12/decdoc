@@ -28,9 +28,9 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
-		await axios.post('http://localhost:3000/filehash',data).then(async(res)=>{hash=res.data.documentHash;
+		await axios.post('/filehash',data).then(async(res)=>{hash=res.data.documentHash;
     
-    await axios.post('http://localhost:3000/api/getuser',{
+    await axios.post('/api/getuser',{
       username:this.state.username
     }).then(({data})=>{
       console.log(data);
@@ -41,7 +41,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
     }).
     catch((e)=>alert(e));
     
-    axios.post('http://localhost:3000/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
+    axios.post('/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
       organizationName:this.props.userdata.organizationName
     }).then(async(res)=>{
       console.log("orgindex ka response",res);
@@ -52,7 +52,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
         console.log(reciept);
         await organizationlist.methods.getIssueDocument().call((err,res)=>{
           console.log(this.state.private_key);
-      axios.post('http://localhost:3000/issueDocument',{
+      axios.post('/issueDocument',{
       orgId:this.props.userid,
       orgIndex:orgIndex,
       username:this.state.username,

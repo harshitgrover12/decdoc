@@ -19,7 +19,7 @@ import Nav from '../nav/nav';
          console.log(resp);
          await organizationlist.methods.getUser().call((err,res)=>{
             console.log(res);
-             axios.post('http://localhost:3000/createUser',{
+             axios.post('/createUser',{
              username:this.state.name,
              userIndex:res
              

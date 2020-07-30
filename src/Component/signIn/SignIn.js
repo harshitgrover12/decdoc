@@ -22,7 +22,7 @@ class SignIn extends Component {
        
         
  
-axios.post('http://localhost:3000/api/auth/signin', {
+axios.post('/api/auth/signin', {
     username: this.state.username,
     password:this.state.password,
     
@@ -30,7 +30,7 @@ axios.post('http://localhost:3000/api/auth/signin', {
   .then(({data})=>{
          axios({
     method: "POST",
-    url: `http://localhost:3000/returnUserDetails`,
+    url: `/returnUserDetails`,
     data: {
         username:this.state.username
     },
@@ -56,7 +56,7 @@ this.props.history.push('/dash');
   e.preventDefault();
    
 
-     axios.post('http://localhost:3000/api/auth/signup', {
+     axios.post('/api/auth/signup', {
     organizationName:this.state.organizationname,
     email: this.state.email,
     username:this.state.username,
