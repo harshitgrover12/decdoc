@@ -49,27 +49,36 @@ const {account,organizationlist,gas,gas_price}=this.props;
         )
     await axios.post('https://mysterious-temple-37666.herokuapp.com/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(async res=>{
       console.log(res);
+      if(res.data.msg==='Valid file')
+      {
       this.setState({
         status:true
       })
-      if(res.data.msg==="Valid file"){
-        await organizationlist.methods.verifyDocument(res.data.doc.organizationName,res.data.doc.orgIndex,res.data.doc.userIndex,res.data.doc.documentIndex,res.data.doc.documentHash)
-        .call((err,res)=> {
-          console.log(res);
-          if(err){
-            console.log(err);
-          }
-          else if(res){
-            console.log("Valid File")
-          }
-          else{
-            console.log("Invalid File")
-          }
+      }
+      else
+      {
+        this.setState({
+          status:false
         })
       }
-      else{
-        console.log("Invalid File")
-      }
+      // if(res.data.msg==="Valid file"){
+      //   await organizationlist.methods.verifyDocument(res.data.doc.organizationName,res.data.doc.orgIndex,res.data.doc.userIndex,res.data.doc.documentIndex,res.data.doc.documentHash)
+      //   .call((err,res)=> {
+      //     console.log(res);
+      //     if(err){
+      //       console.log(err);
+      //     }
+      //     else if(res){
+      //       console.log("Valid File")
+      //     }
+      //     else{
+      //       console.log("Invalid File")
+      //     }
+      //   })
+      // }
+      // else{
+      //   console.log("Invalid File")
+      // }
     })
 
     // await axios.post('/api/getuser',{
