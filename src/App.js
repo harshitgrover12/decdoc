@@ -31,7 +31,7 @@ class App extends Component {
     // Load account
     const accounts = await web3.eth.getAccounts();
     this.props.changeaccount(accounts[0]);
-
+    console.log(this.props.account);
     console.log("CURRENT ACCOUNT IS: " + this.props.account);
 
     const networkId = await web3.eth.net.getId();
