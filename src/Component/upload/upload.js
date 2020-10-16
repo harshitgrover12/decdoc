@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import ipfsApi from 'ipfs-api'
-
-const ipfs = new ipfsApi('localhost', '5001');
+const ipfsAPI = require('ipfs-api')
 
 class UploadIPFS extends Component {
     constructor () {
