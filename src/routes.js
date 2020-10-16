@@ -8,6 +8,8 @@ import IssueDocument from './Component/Dash/IssueDocument/IssueDocument';
 import CreateOrganization from './Component/createOrganization/CreateOrganization';
 import CreateUser from './Component/createUser/CreateUser';
 import VerifyDocument from './Component/Dash/VerifyDocument/verify';
+import UploadIPFS from './Component/upload/upload';
+
  class Routes extends Component {
     render() {
         return (
@@ -21,6 +23,7 @@ import VerifyDocument from './Component/Dash/VerifyDocument/verify';
                 <Route exact path='/createOrganization' render={(props)=><CreateOrganization{...this.props}/>}/>
                 <Route exact path='/createUser' render={(props)=><CreateUser{...this.props}/>}/>
                  <Route exact path='/verifyDocument'render={(props)=><VerifyDocument{...this.props}/>}/>
+                 <Route exact path='/uploadipfs'render={(props)=><UploadIPFS{...this.props}/>}/>
             </Switch>
                 
             </div>

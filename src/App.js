@@ -6,6 +6,9 @@ import Routes from './routes';
 import orgApi from "./Component/contracts/OrganizationList.json";
 
 import Web3 from "web3";
+
+
+
 class App extends Component {
   async componentWillMount() {
     await this.loadWeb3();
