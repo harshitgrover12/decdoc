@@ -12,21 +12,31 @@ import React from 'react';
             <div className="row justify-content-center">
               <div className="col-xl-9 d-flex align-items-center">
                 <h1 className="logo mr-auto"><a href="/">DEC-DOCS</a></h1>
-                {/* Uncomment below if you prefer to use an image logo */}
-                {/* <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}
+             {
+                props.isauthenticated?(
                 <nav className="nav-menu d-none d-lg-block">
                   <ul>
-                    <li className="drop-down"><a href>profile</a>
+                    <li className="drop-down"><a href>Account Options</a>
                       <ul>
                         <li><a href="/editProfile">edit profile</a></li>
-                        <li><a href="/documents">Documents</a></li> 
+                        <li><a href="/documents">View Documents</a></li> 
+                        <li><a onClick={(e)=>{e.preventDefault();
+                        props.history.push('/viewRequests')}}>Contract Signings</a></li>
                       </ul>
                     </li>
                      <li><a onClick={(e)=>props.history.push('/')}>Sign Out</a></li>
                     
                     
                   </ul>
-                </nav>
+                </nav>):(<nav className="nav-menu d-none d-lg-block">
+                  <ul>
+                   
+                     <li><a onClick={(e)=>{props.history.push('/signIn')}}>Sign In</a></li>
+                    
+                    
+                  </ul>
+                </nav>)
+             }
                 {/* .nav-menu */}
                 
               </div>

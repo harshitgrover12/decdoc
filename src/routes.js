@@ -9,6 +9,9 @@ import CreateOrganization from './Component/createOrganization/CreateOrganizatio
 import CreateUser from './Component/createUser/CreateUser';
 import VerifyDocument from './Component/Dash/VerifyDocument/verify';
 import SignContract from './Component/Dash/SignContract/SignContract';
+import Requests from './Component/Dash/Requests/Requests';
+import UploadIPFS from './Component/upload/upload';
+
  class Routes extends Component {
     render() {
         return (
@@ -23,6 +26,9 @@ import SignContract from './Component/Dash/SignContract/SignContract';
                 <Route exact path='/createUser' render={(props)=><CreateUser{...this.props}/>}/>
                 <Route exact path='/verifyDocument' render={(props)=><VerifyDocument{...this.props}/>}/>
                 <Route exact path='/signContract' render={(props)=><SignContract{...this.props}/>}/>
+                <Route exact path='/verifyDocument'render={(props)=><VerifyDocument{...this.props}/>}/>
+                <Route exact path='/uploadipfs'render={(props)=><UploadIPFS{...this.props}/>}/>
+                <Route exact path='/viewRequests'render={(props)=><Requests{...this.props}/>}/>
             </Switch>
                 
             </div>

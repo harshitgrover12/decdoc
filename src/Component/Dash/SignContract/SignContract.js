@@ -35,7 +35,7 @@ import Nav from '../../nav/nav';
       return (
         <div>
           <br />
-          <h4>Choose before Pressing the Upload button</h4>
+          <h4>Choose before Pressing the Send button</h4>
         </div>
       );
     }
@@ -46,13 +46,14 @@ import Nav from '../../nav/nav';
 
             <div>
                 <Nav {...this.props}/>
+                {
+                  this.props.isauthenticated?(
                 <div className="containerdoc justify-content-center center " >
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
-                                <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input}/>
-                                  <input type="password" id="secret"name="secret"placeholder="enter secret" onChange={this.handleChange} ref={(input)=>this.secret=input}/>
-                                  <input type="password" id="private_key"name="private_key"placeholder="enter private key" onChange={this.handleChange} ref={(input)=>this.private_key=input}/>
+                                <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input} style={{width:'500px'}}/>
+                                <input type="password" id="private_key"name="private_key"placeholder="enter private key" onChange={this.handleChange} ref={(input)=>this.private_key=input} style={{width:'1200px'}}/>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>
@@ -69,7 +70,7 @@ import Nav from '../../nav/nav';
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Upload</button>
+                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Send</button>
                             </div>
                         </div>
                     </div>
@@ -78,8 +79,10 @@ import Nav from '../../nav/nav';
                             {this.fileData()}
                         </div>
                     </div>
-                </div>
+                </div>):(<div/>)
+                }
             </div>
+                
                 
             </div>
         )
