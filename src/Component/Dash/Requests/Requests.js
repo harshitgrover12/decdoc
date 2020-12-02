@@ -12,7 +12,7 @@ import axios from 'axios';
     
     }
    
-  handleAccept=(id)=>
+  handleAccept=(id,senderIndex,agreementHash)=>
 {
    
     axios.put('https://mysterious-temple-37666.herokuapp.com/agreementStatus',{
@@ -28,7 +28,14 @@ import axios from 'axios';
         this.setState({
             aggr:aggr
     })
-        }).then(()=>this.setState({status:'requests'}))
+        }).then(()=>this.setState({status:'requests'})).then(()=>{
+            const {account,organizationlist,gas,gas_price}=this.props;
+            console.log(this.props.userdata.userIndex);
+         organizationlist.methods.signDocument(senderIndex,this.props.userdata.userIndex,agreementHash).send({ from:account})
+      .then(async({reciept})=> {
+         console.log(reciept);
+      })
+        })
     
     })   
 }
@@ -117,7 +124,7 @@ componentWillMount=()=>
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
                     <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
-                        <button className="button4" onClick={(e)=>{e.preventDefault();this.handleAccept(a._id)}}>Accept</button> 
+                        <button className="button4" onClick={(e)=>{e.preventDefault();this.handleAccept(a._id,a.senderIndex,a.agreementHash)}}>Accept</button> 
                         <button className="button4" onClick={(e)=>{e.preventDefault();this.handleReject(a._id)}} >Reject</button>
                     </div>               
                     </div>                                                    

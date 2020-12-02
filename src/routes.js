@@ -11,6 +11,7 @@ import VerifyDocument from './Component/Dash/VerifyDocument/verify';
 import SignContract from './Component/Dash/SignContract/SignContract';
 import Requests from './Component/Dash/Requests/Requests';
 import UploadIPFS from './Component/upload/upload';
+import VerifyContract from './Component/Dash/VerifyContract/VerifyContract';
 
  class Routes extends Component {
     render() {
@@ -29,6 +30,7 @@ import UploadIPFS from './Component/upload/upload';
                 <Route exact path='/verifyDocument'render={(props)=><VerifyDocument{...this.props}/>}/>
                 <Route exact path='/uploadipfs'render={(props)=><UploadIPFS{...this.props}/>}/>
                 <Route exact path='/viewRequests'render={(props)=><Requests{...this.props}/>}/>
+                <Route exact path='/verifyContract'render={(props)=><VerifyContract{...this.props}/>}/>
             </Switch>
                 
             </div>

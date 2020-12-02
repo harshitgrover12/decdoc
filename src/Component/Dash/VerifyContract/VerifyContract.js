@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import axios from 'axios';
- class SignContract extends Component {
+ class VerifyContract extends Component {
           state = {
     // Initially, no file is selected
     selectedFile: null,
+    authentic:'verification pending'
     
   };
     onFileChange = (event) => {
@@ -31,6 +32,7 @@ import axios from 'axios';
             {this.state.selectedFile.lastModifiedDate &&
               this.state.selectedFile.lastModifiedDate.toDateString()}
           </p>
+          <p style={{fontWeight:'bold'}}>Authenticity of file:{this.state.authentic}</p>
         </div>
       );
     } else {
@@ -44,36 +46,57 @@ import axios from 'axios';
   };
   onFileUpload=async(e)=>
   {
+      const {account,organizationlist,gas,gas_price}=this.props;
     const data = new FormData(); 
     data.append('file', this.state.selectedFile);
     let hash;
     
     let userId;
     let id;
-    let userIndex;
+    let senderIndex;
+    let receiverIndex;
     
 		await axios.post('https://mysterious-temple-37666.herokuapp.com/filehash',data).then(async(res)=>{hash=res.data.documentHash;
     
-    await axios.post('https://mysterious-temple-37666.herokuapp.com/api/getuser',{
-      username:this.state.username
-    }).then(({data})=>{
-      console.log(data);
-      id=data.userData.id
-      userIndex=data.userData.userIndex;
-      console.log('reciever id is',data.userData.id);
-      
-
-    }).
-    catch((e)=>alert(e));
-    console.log(this.props.userdata.id)
-    await axios.post('https://mysterious-temple-37666.herokuapp.com/issueAgreement',{
-      private_key:this.state.private_key,
-      documentHash:hash,
-      receiver:id,
-      senderIndex:this.props.userdata.userIndex,
-      sender:this.props.userdata.id
-    }).then((res)=>console.log(res)).catch((e)=>console.log(e))
+    
+   
+  }).then(async()=>{
+     await axios.post('https://mysterious-temple-37666.herokuapp.com/returnUserDetails',{
+         username:this.state.sender
+     }).then(({data})=>{
+         senderIndex=data.userIndex
+     })
+     await axios.post('https://mysterious-temple-37666.herokuapp.com/returnUserDetails',{
+         username:this.state.receiver
+     }).then(({data})=>{
+         receiverIndex=data.userIndex
+     })
   })
+  let user1;
+  let user2;
+  console.log('senderIndex:',senderIndex,'receiverIndex:',receiverIndex)
+  await organizationlist.methods.checkSign1(hash).call((err,res)=>{
+      user1=res;
+           
+  }).catch((e)=>console.log(e))
+    await organizationlist.methods.checkSign2(hash).call((err,res)=>{
+        user2=res;
+           
+  }).catch((e)=>console.log(e))
+  console.log('user1:',user1,'user2:',user2)
+  if(parseInt(user1)===senderIndex && parseInt(user2)===receiverIndex)
+  {
+      this.setState({
+          authentic:'verified'
+      })
+  }
+  else
+  {
+  this.setState({
+      authentic:'not verified'
+  })
+  }
+  
   
   }
     render() {
@@ -88,8 +111,8 @@ import axios from 'axios';
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
-                                <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input} style={{width:'500px'}}/>
-                                <input type="password" id="private_key"name="private_key"placeholder="enter private key" onChange={this.handleChange} ref={(input)=>this.private_key=input} style={{width:'1200px'}}/>
+                                <input type="input" id="sender"name="sender" placeholder="enter sender's username" onChange={this.handleChange} ref={(input)=>this.sender=input} style={{width:'500px',marginRight:'30px'}}/>
+                                <input type="input" id="receiver"name="receiver"placeholder="enter receiver's username" onChange={this.handleChange} ref={(input)=>this.receiver=input} style={{width:'500px'}}/>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>
@@ -106,7 +129,7 @@ import axios from 'axios';
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Send</button>
+                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Verify</button>
                             </div>
                         </div>
                     </div>
@@ -124,4 +147,4 @@ import axios from 'axios';
         )
     }
 }
-export default SignContract;
+export default VerifyContract;
