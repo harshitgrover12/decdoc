@@ -36,6 +36,10 @@ import Typography from '@material-ui/core/Typography';
    e.preventDefault();
    this.props.history.push('/verifyContract')
  }
+ handleUpload=(e)=>{
+   e.preventDefault();
+   this.props.history.push('/documentUpload');
+ }
     render() {
         const {classes}=this.props;
         return (
@@ -145,7 +149,7 @@ import Typography from '@material-ui/core/Typography';
                                    
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay={300}>
+                            <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay={300} onClick={this.handleUpload}>
                                 <div className="icon-box iconbox-pink">
                                     <div className="icon">
                                         <svg width={100} height={100} viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
