@@ -2,14 +2,28 @@ import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import axios from 'axios';
 import './issueDocument.css';
+import ipfs from '../../ipfs/ipfs.js'
  class IssueDocument extends Component {
      state = {
     // Initially, no file is selected
     selectedFile: null,
+    ipfsHash:null,
+    buffer:null
   };
+   convertToBuffer = async(reader) => {
+      //file is converted to a buffer to prepare for uploading to IPFS
+        const buffer = await Buffer.from(reader.result);
+      //set this buffer -using es6 syntax
+        this.setState({buffer});
+    };
     onFileChange = (event) => {
     // Update the state
+    event.preventDefault();
     this.setState({ selectedFile: event.target.files[0] });
+        const file = event.target.files[0];
+        let reader = new window.FileReader()
+        reader.readAsArrayBuffer(file)
+        reader.onloadend = () => this.convertToBuffer(reader) 
   };
   componentDidMount=()=>{
       console.log(this.props);
@@ -23,12 +37,15 @@ import './issueDocument.css';
 const {account,organizationlist,gas,gas_price}=this.props;
  const data = new FormData(); 
     data.append('file', this.state.selectedFile);
+     const hashData=await ipfs.add(this.state.buffer);
+       this.setState({
+           ipfsHash:hashData.path
+       })
     let hash;
-    
     let userId;
     let userIndex;
     let orgIndex;
-		await axios.post('https://mysterious-temple-37666.herokuapp.com/filehash',data).then(async(res)=>{hash=res.data.documentHash;
+		
     
     await axios.post('https://mysterious-temple-37666.herokuapp.com/api/getuser',{
       username:this.state.username
@@ -47,7 +64,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
       console.log("orgindex ka response",res);
       orgIndex=res.data.orgIndex;
       console.log(this.props.userdata.organizationName,hash,orgIndex,userIndex,this.state.secret);
-      await organizationlist.methods.issueDocument(this.props.userdata.organizationName,hash,orgIndex,userIndex,this.state.secret).send({ from:account})
+      await organizationlist.methods.issueDocument(this.props.userdata.organizationName,this.state.ipfsHash,orgIndex,userIndex,this.state.secret).send({ from:account})
       .then(async({reciept})=> {
         console.log(reciept);
         await organizationlist.methods.getIssueDocument().call((err,res)=>{
@@ -58,18 +75,17 @@ const {account,organizationlist,gas,gas_price}=this.props;
       username:this.state.username,
       userIndex:userIndex,
       documentIndex:res,
-      documentHash:hash,
+      documentHash:this.state.ipfsHash,
       organizationName:this.props.userdata.organizationName,
       private_key:this.state.private_key
-    }).then((res)=>console.log(res)).catch((e)=>console.log('get me issue'+e))
+    }).then((res)=>{console.log(res);this.props.history.push('/dash')}).catch((e)=>console.log('get me issue'+e))
         })
        
       })
       .catch((e) => {
         console.log('contract me issue'+e);
       });
-    }).catch((e)=>{console.log('main error');
-    console.log(e)});
+   
     
 
     

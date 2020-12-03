@@ -30,6 +30,7 @@ import ipfs from  '../ipfs/ipfs.js';
        this.setState({
            ipfsHash:data.path
        })
+       
       
 
 

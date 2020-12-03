@@ -1,16 +1,30 @@
 import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import axios from 'axios';
+import ipfs from '../../ipfs/ipfs';
  class VerifyContract extends Component {
           state = {
     // Initially, no file is selected
     selectedFile: null,
-    authentic:'verification pending'
+    authentic:'verification pending',
+    buffer:null,
+    ipfsHash:null
     
   };
+   convertToBuffer = async(reader) => {
+      //file is converted to a buffer to prepare for uploading to IPFS
+        const buffer = await Buffer.from(reader.result);
+      //set this buffer -using es6 syntax
+        this.setState({buffer});
+    };
     onFileChange = (event) => {
     // Update the state
+    event.preventDefault();
     this.setState({ selectedFile: event.target.files[0] });
+        const file = event.target.files[0];
+        let reader = new window.FileReader()
+        reader.readAsArrayBuffer(file)
+        reader.onloadend = () => this.convertToBuffer(reader) 
   };
   componentDidMount=()=>{
       console.log(this.props);
@@ -49,18 +63,17 @@ import axios from 'axios';
       const {account,organizationlist,gas,gas_price}=this.props;
     const data = new FormData(); 
     data.append('file', this.state.selectedFile);
-    let hash;
+   
     
     let userId;
     let id;
     let senderIndex;
     let receiverIndex;
-    
-		await axios.post('https://mysterious-temple-37666.herokuapp.com/filehash',data).then(async(res)=>{hash=res.data.documentHash;
-    
-    
-   
-  }).then(async()=>{
+    const hashData=await ipfs.add(this.state.buffer);
+       this.setState({
+           ipfsHash:hashData.path
+       })
+		
      await axios.post('https://mysterious-temple-37666.herokuapp.com/returnUserDetails',{
          username:this.state.sender
      }).then(({data})=>{
@@ -71,15 +84,15 @@ import axios from 'axios';
      }).then(({data})=>{
          receiverIndex=data.userIndex
      })
-  })
+
   let user1;
   let user2;
   console.log('senderIndex:',senderIndex,'receiverIndex:',receiverIndex)
-  await organizationlist.methods.checkSign1(hash).call((err,res)=>{
+  await organizationlist.methods.checkSign1(this.state.ipfsHash).call((err,res)=>{
       user1=res;
            
   }).catch((e)=>console.log(e))
-    await organizationlist.methods.checkSign2(hash).call((err,res)=>{
+    await organizationlist.methods.checkSign2(this.state.ipfsHash).call((err,res)=>{
         user2=res;
            
   }).catch((e)=>console.log(e))

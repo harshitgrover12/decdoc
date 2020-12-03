@@ -1,17 +1,29 @@
 import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import axios from 'axios';
-
+import ipfs from '../../ipfs/ipfs';
  class VerifyDocument extends Component {
      state = {
     // Initially, no file is selected
     selectedFile: null,
     status:false,
-    afterReq:false
+    afterReq:false,
+    ipfsHash:null,
+    buffer:null
   };
+   convertToBuffer = async(reader) => {
+      //file is converted to a buffer to prepare for uploading to IPFS
+        const buffer = await Buffer.from(reader.result);
+      //set this buffer -using es6 syntax
+        this.setState({buffer});
+    };
     onFileChange = (event) => {
-    // Update the state
+  event.preventDefault();
     this.setState({ selectedFile: event.target.files[0] });
+        const file = event.target.files[0];
+        let reader = new window.FileReader()
+        reader.readAsArrayBuffer(file)
+        reader.onloadend = () => this.convertToBuffer(reader) 
   };
   componentDidMount=()=>{
       console.log(this.props);
@@ -43,11 +55,13 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
-		await axios.post('https://mysterious-temple-37666.herokuapp.com/filehash',data).then(async(res)=>{hash=res.data.documentHash;
-        this.setState({hash:hash})
-        }
-        )
-    await axios.post('https://mysterious-temple-37666.herokuapp.com/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.hash}).then(async res=>{
+     const hashData=await ipfs.add(this.state.buffer);
+     console.log(hashData.path);
+       this.setState({
+           ipfsHash:hashData.path
+       })
+		
+    await axios.post('https://mysterious-temple-37666.herokuapp.com/documentdetailsfromhash',{public_key:this.state.public_key,hash:this.state.ipfsHash}).then(async res=>{
       console.log(res);
       if(res.data.msg==='Valid file')
       {

@@ -82,7 +82,7 @@ componentWillMount=()=>
 }
     render() {
        
-       
+       let url="https://gateway.ipfs.io/ipfs/";
         console.log(this.state.aggr)
         return (
             <div>
@@ -120,7 +120,7 @@ componentWillMount=()=>
                     <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Username:{a.sender}</div>               
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:{a.agreementHash}</div>               
+                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
                     <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
@@ -145,7 +145,7 @@ componentWillMount=()=>
                     <div class="col-xs-12"style={{position:'relative',left:'10px'}}> sender:{a.sender}</div>               
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:{a.agreementHash}</div>               
+                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
                     <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
@@ -168,7 +168,7 @@ componentWillMount=()=>
                     <div class="col-xs-12"style={{position:'relative',left:'10px'}}> sender:{a.sender}</div>               
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:{a.agreementHash}</div>               
+                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
                     <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
@@ -193,7 +193,7 @@ componentWillMount=()=>
                     <div class="col-xs-12"style={{position:'relative',left:'10px'}}> receiver:{a.receiver}</div>               
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:{a.agreementHash}</div>               
+                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
                     </div>  
                     <div class="row" style={{marginTop:'10px'}}>                                                                 
                     <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 

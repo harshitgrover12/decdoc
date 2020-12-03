@@ -1,15 +1,29 @@
 import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import axios from 'axios';
+import ipfs from '../../ipfs/ipfs';
  class SignContract extends Component {
           state = {
     // Initially, no file is selected
     selectedFile: null,
+    buffer:null,
+    ipfsHash:null
     
   };
+    convertToBuffer = async(reader) => {
+      //file is converted to a buffer to prepare for uploading to IPFS
+        const buffer = await Buffer.from(reader.result);
+      //set this buffer -using es6 syntax
+        this.setState({buffer});
+    };
     onFileChange = (event) => {
     // Update the state
+    event.preventDefault();
     this.setState({ selectedFile: event.target.files[0] });
+        const file = event.target.files[0];
+        let reader = new window.FileReader()
+        reader.readAsArrayBuffer(file)
+        reader.onloadend = () => this.convertToBuffer(reader) 
   };
   componentDidMount=()=>{
       console.log(this.props);
@@ -46,13 +60,15 @@ import axios from 'axios';
   {
     const data = new FormData(); 
     data.append('file', this.state.selectedFile);
-    let hash;
+const hashData=await ipfs.add(this.state.buffer);
+       this.setState({
+           ipfsHash:hashData.path
+       })
     
     let userId;
     let id;
     let userIndex;
     
-		await axios.post('https://mysterious-temple-37666.herokuapp.com/filehash',data).then(async(res)=>{hash=res.data.documentHash;
     
     await axios.post('https://mysterious-temple-37666.herokuapp.com/api/getuser',{
       username:this.state.username
@@ -68,12 +84,12 @@ import axios from 'axios';
     console.log(this.props.userdata.id)
     await axios.post('https://mysterious-temple-37666.herokuapp.com/issueAgreement',{
       private_key:this.state.private_key,
-      documentHash:hash,
+      documentHash:this.state.ipfsHash,
       receiver:id,
       senderIndex:this.props.userdata.userIndex,
       sender:this.props.userdata.id
     }).then((res)=>console.log(res)).catch((e)=>console.log(e))
-  })
+  
   
   }
     render() {
