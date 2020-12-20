@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import axios from 'axios';
 import ipfs from '../../ipfs/ipfs';
+import './verify.css';
  class VerifyDocument extends Component {
      state = {
     // Initially, no file is selected
@@ -163,8 +164,8 @@ const {account,organizationlist,gas,gas_price}=this.props;
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
-                                <input type="input" id="orgName"name="orgName" placeholder="enter organization to find public key" onChange={this.handleChange} ref={(input)=>this.orgName=input} style={{marginLeft:'30px',width:'500px'}}/>
-                                <button style={{pointer:'cursor',display:'inline-block'}}class="btn btn-primary btn-lg" onClick={this.onPublic}>Search</button>
+                                <input type="input" id="orgName"name="orgName" placeholder="Enter Organization To Find Public Key" onChange={this.handleChange} ref={(input)=>this.orgName=input} style={{marginLeft:'30px',width:'500px'}}/>
+                                <button style={{ pointer: 'cursor', display: 'inline-block' }} class="btn btn-primary btn-lg" onClick={this.onPublic}>Search <i className="fa fa-search"></i></button>
                                 {
                                   this.state.afterReq ?(
                                 <textarea class="form-control" id="public_key" rows="9" value={this.state.public_key} ref={(input)=>this.public_key=input}style={{border:'2px solid #e9eaea',width:'900px',marginLeft:'290px'}}></textarea>
@@ -179,7 +180,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button type="button" id="btnup" class="btn btn-primary btn-lg" style={{cursor:'pointer'}}>Browse for your Documents!</button>
+                                <button type="button" id="btnup" class="btn btn-primary btn-lg" style={{ cursor: 'pointer' }}>Browse For Your Documents!<i className="fa fa-file"></i></button>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
                             </div>
                         </div>

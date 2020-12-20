@@ -4,20 +4,25 @@
     margin-top: 52px;
     border-radius: 5px;
 }
+
 .center {
     text-align: center;
 }
-.labels{
-    padding:0 50px;
+
+.labels {
+    padding: 0 50px;
 }
+
 .lists {
     list-style: none;
     padding: 0;
 }
+
 .listsli {
     padding-bottom: 10px;
     font-family: "Poppins", sans-serif;
 }
+
 .listsi {
     font-size: 20px;
     padding-right: 4px;
@@ -26,7 +31,7 @@
 
 #fileup {
     opacity: 0;
-    top:0px;
+    top: 0px;
     width: 200px;
     cursor: pointer;
     position: absolute;
@@ -35,7 +40,7 @@
     bottom: 40px;
     height: 50px;
 }
-    
+
 .btn-primary {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -45,24 +50,24 @@
     padding: 10px 28px;
     border-radius: 5px;
     transition: 0.5s;
-    
     color: #fff;
     border: 2px solid #fff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    
 }
+
     .btn-primary:hover {
         background: #fff;
         color: #5846f9;
-    
+    }
+
+.docpad {
+    padding: 20px 60px;
 }
-.docpad{
-    padding:20px 60px;
+
+.fa-upload {
+    padding: 0 0 0 13px;
 }
-.fa-upload{
-    padding:0 0 0 13px;
-}
+
 .fa-window-restore {
     padding: 0 0 0 13px;
-    
 }

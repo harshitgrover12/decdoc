@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\components",
+    "\\components\\signUp",
+    "\\src",
+    "\\src\\Component",
+    "\\src\\Component\\createOrganization",
+    "\\src\\Component\\createUser",
+    "\\src\\Component\\Dash",
+    "\\src\\Component\\Dash\\IssueDocument",
+    "\\src\\Component\\Dash\\Options",
+    "\\src\\Component\\signIn"
+  ],
+  "SelectedNode": "\\src\\Component\\Dash\\IssueDocument\\issueDocument.css",
+  "PreviewInSolutionExplorer": false
+}

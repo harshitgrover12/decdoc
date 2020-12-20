@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import ipfs from  '../ipfs/ipfs.js';
+import ipfs from '../ipfs/ipfs.js';
+import Nav from '../nav/nav';
+
+import './upload1.css';
  class Upload1 extends Component {
      state = {
     // Initially, no file is selected
@@ -48,24 +51,37 @@ import ipfs from  '../ipfs/ipfs.js';
         
         return (
             <div>
-            
-                <form action="/">
-        <fieldset>
-            <legend>Upload photo</legend>
-            <input type="file" name="photo" id="photo" onChange={this.onFileChange}></input>
-            <button type="button" onClick={this.handleSubmit}>Upload</button>
-        </fieldset>
-    </form>
-    <br/>
-    <br/>
-    {
-   this.state.ipfsHash?(
-    <a id="url"> https://gateway.ipfs.io/ipfs/{this.state.ipfsHash}</a>):(<div/>)
-    }
-    <br/>
-    <br/>
-    <img id="output"></img>
-            </div>
+                <Nav {...this.props} />
+                <div className="containerdoc justify-content-center center " >
+                    <div class="row docpad">
+                        <div class="col-xl-12 col-xl-offset-3 center">
+                              <form action="/">
+                    <fieldset>
+                        <legend>Upload photo</legend>
+
+                        <input type="file" name="photo" id="photo"   onChange={this.onFileChange}></input>
+                                    <button type="button" class="btn btn-primary btn-lg" onClick={this.handleSubmit}>Upload <i className="fa fa-upload fa-1x" /></button>
+                    </fieldset>
+                  </form>
+                <br/>
+                <br/>
+                {
+               this.state.ipfsHash?(
+                <a id="url"> https://gateway.ipfs.io/ipfs/{this.state.ipfsHash}</a>):(<div/>)
+                }
+                <br/>
+                <br/>
+              <img id="output"></img>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+                
+
+          </div>
 
         )
     }
