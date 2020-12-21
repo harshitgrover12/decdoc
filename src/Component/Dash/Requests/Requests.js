@@ -88,46 +88,42 @@ componentWillMount=()=>
             <div>
                 <Nav{...this.props}/>
               
-                    <div className='filter'>
-            
-            
-            <div id=''>
-                <select onChange={this.setChange} value={this.state.status}>
-                    <option  value='requests'>Requests</option>
-                    <option value='accepted'>Accepted</option>
-                    <option value='rejected'>Rejected</option>
-                    <option value='sent'>Sent Requests</option>
+                    <div className='filter' >
+                        <div id=''>
+                            <select onChange={this.setChange} value={this.state.status}>
+                                <option  value='requests'>My Requests</option>
+                                <option value='accepted'>Accepted</option>
+                                <option value='rejected'>Rejected</option>
+                                <option value='sent'> Requests Sent</option>
                     
-                </select>
-            </div>
-        </div>
+                            </select>
+                        </div>
+                     </div>
                     {
-                        this.state.status==='requests'?(
-                            
+                        this.state.status==='requests'?(                                   
                                 
-                                    
-                                
-                <div>{
+                <div>
+                            {
                 this.state.aggr.map((a)=>(
                     
                 
                     a.receiver===this.props.userdata.id && a.status==='pending'?(
                     <div class="container" style={{border:"1px solid #cecece",marginTop:'100px'}}>
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
-                    </div>                                                      
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Username:{a.sender}</div>               
-                    </div>  
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
-                    </div>  
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
-                        <button className="button4" onClick={(e)=>{e.preventDefault();this.handleAccept(a._id,a.senderIndex,a.agreementHash)}}>Accept</button> 
-                        <button className="button4" onClick={(e)=>{e.preventDefault();this.handleReject(a._id)}} >Reject</button>
-                    </div>               
-                    </div>                                                    
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
+                        </div>                                                      
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                            <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Username:{a.sender}</div>               
+                        </div>  
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
+                        </div>  
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                            <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
+                                <button className="button4" onClick={(e)=>{e.preventDefault();this.handleAccept(a._id,a.senderIndex,a.agreementHash)}}>Accept</button> 
+                                <button className="button4" onClick={(e)=>{e.preventDefault();this.handleReject(a._id)}} >Reject</button>
+                            </div>               
+                        </div>                                                    
                    </div>):(<div/>)
                    )) }         
                 </div>
