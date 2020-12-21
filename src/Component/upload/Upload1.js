@@ -54,33 +54,43 @@ import './upload1.css';
                 <Nav {...this.props} />
                 <div className="containerdoc justify-content-center center " >
                     <div class="row docpad">
-                        <div class="col-xl-12 col-xl-offset-3 center">
-                              <form action="/">
-                    <fieldset>
-                        <legend>Upload photo</legend>
+                       <div class="col-xl-12 col-xl-offset-3 center">
+                          <form action="/">
+                                <fieldset>
+                                    <legend>Upload Document</legend>
+                                    <div class="row docpad">
+                                        <div class="col-xl-12 col-xl-offset-3 center">
+                                             <div class="btn-container">
+                                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse For Your Documents! <i className="fa fa-file-search fa-1x" /></button>
+                                                <input type="file" name="photo" id="photo" onChange={this.onFileChange}></input>
+                                             </div>
+                                        </div>
+                                    </div>
 
-                        <input type="file" name="photo" id="photo"   onChange={this.onFileChange}></input>
-                                    <button type="button" class="btn btn-primary btn-lg" onClick={this.handleSubmit}>Upload <i className="fa fa-upload fa-1x" /></button>
-                    </fieldset>
-                  </form>
-                <br/>
-                <br/>
-                {
-               this.state.ipfsHash?(
-                <a id="url"> https://gateway.ipfs.io/ipfs/{this.state.ipfsHash}</a>):(<div/>)
-                }
-                <br/>
-                <br/>
-              <img id="output"></img>
+                                    <div class="row docpad">
+                                        <div class="col-xl-12 col-xl-offset-3 center">
+                                            <div class="btn-container">
+                                                <button type="button" class="btn btn-primary btn-lg" onClick={this.handleSubmit}>Upload <i className="fa fa-upload fa-1x" /></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </fieldset>
+                          </form>
+                        <br/>
+                        <br/>
+                        {
+                           this.state.ipfsHash?(
+                            <a id="url"> https://gateway.ipfs.io/ipfs/{this.state.ipfsHash}</a>):(<div/>)
+                        }
+                        <br/>
+                        <br/>
+                        <img id="output"></img>
                             
-                        </div>
+                       </div>
                     </div>
-                    
                 </div>
-
-
-                
-
           </div>
 
         )
