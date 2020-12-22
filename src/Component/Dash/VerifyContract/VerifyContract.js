@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import axios from 'axios';
+import '../IssueDocument/IssueDocument'
 import ipfs from '../../ipfs/ipfs';
  class VerifyContract extends Component {
           state = {
@@ -124,8 +125,8 @@ import ipfs from '../../ipfs/ipfs';
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
-                                <input type="input" id="sender"name="sender" placeholder="enter sender's username" onChange={this.handleChange} ref={(input)=>this.sender=input} style={{width:'500px',marginRight:'30px'}}/>
-                                <input type="input" id="receiver"name="receiver"placeholder="enter receiver's username" onChange={this.handleChange} ref={(input)=>this.receiver=input} style={{width:'500px'}}/>
+                                <input type="input" id="sender"name="sender" placeholder="enter sender's username" onChange={this.handleChange} ref={(input)=>this.sender=input} />
+                                <input type="input" id="receiver"name="receiver"placeholder="enter receiver's username" onChange={this.handleChange} ref={(input)=>this.receiver=input} />
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>
@@ -134,7 +135,7 @@ import ipfs from '../../ipfs/ipfs';
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your Documents!</button>
+                                            <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your Documents! <i className="fa fa-file fa-1x" /></button>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
                             </div>
                         </div>
@@ -142,7 +143,7 @@ import ipfs from '../../ipfs/ipfs';
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Verify</button>
+                                            <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Verify <i className="fa fa-search fa-1x" /></button>
                             </div>
                         </div>
                     </div>

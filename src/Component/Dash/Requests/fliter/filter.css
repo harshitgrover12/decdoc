@@ -78,7 +78,7 @@
     left: 2px;
     color: white;
     overflow: hidden;
-    background: linear-gradient(to right, white, #25c0ab 50%, white 50%);
+    background: linear-gradient(to right, white, black 50%, white 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

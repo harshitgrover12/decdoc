@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Nav from '../../nav/nav';
+import '../IssueDocument/issueDocument.css';
 import axios from 'axios';
 import ipfs from '../../ipfs/ipfs';
  class SignContract extends Component {
@@ -104,8 +105,8 @@ const hashData=await ipfs.add(this.state.buffer);
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
-                                <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input} style={{width:'500px'}}/>
-                                <input type="password" id="private_key"name="private_key"placeholder="enter private key" onChange={this.handleChange} ref={(input)=>this.private_key=input} style={{width:'1200px'}}/>
+                                <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input} />
+                                <input type="password" id="private_key"name="private_key"placeholder="enter private key" onChange={this.handleChange} ref={(input)=>this.private_key=input} />
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>
@@ -114,7 +115,7 @@ const hashData=await ipfs.add(this.state.buffer);
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your Documents!</button>
+                                            <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your Documents!<i className="fa fa-file fa-1x" /></button>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
                             </div>
                         </div>
@@ -122,7 +123,7 @@ const hashData=await ipfs.add(this.state.buffer);
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Send</button>
+                                            <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Send<i className="fa fa-paper-plane fa-1x" /></button>
                             </div>
                         </div>
                     </div>

@@ -61,7 +61,7 @@ import './upload1.css';
                                     <div class="row docpad">
                                         <div class="col-xl-12 col-xl-offset-3 center">
                                              <div class="btn-container">
-                                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse For Your Documents! <i className="fa fa-file-search fa-1x" /></button>
+                                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse For Your Documents! <i className="fa fa-file fa-1x" /></button>
                                                 <input type="file" name="photo" id="photo" onChange={this.onFileChange}></input>
                                              </div>
                                         </div>

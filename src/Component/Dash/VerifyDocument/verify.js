@@ -188,7 +188,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Verify</button>
+                                <button class="btn btn-primary btn-lg" onClick={this.onFileUpload}>Verify<i className="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>

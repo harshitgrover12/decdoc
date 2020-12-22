@@ -6,6 +6,7 @@ import ipfs from '../../ipfs/ipfs.js';
  class IssueDocument extends Component {
      state = {
     // Initially, no file is selected
+
     selectedFile: null,
     ipfsHash:null,
     buffer:null
@@ -129,7 +130,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
                     <div class="row docpad">
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <div class="btn-container">
-                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse For Your Documents! <i className="fa fa-file-search fa-1x"/></button>
+                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse For Your Documents! <i className="fa fa-file fa-1x"/></button>
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
                             </div>
                         </div>
