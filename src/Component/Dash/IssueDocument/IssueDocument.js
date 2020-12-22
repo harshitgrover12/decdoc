@@ -45,8 +45,6 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
-		
-    
     await axios.post('https://mysterious-temple-37666.herokuapp.com/api/getuser',{
       username:this.state.username
     }).then(({data})=>{
@@ -85,14 +83,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
       .catch((e) => {
         console.log('contract me issue'+e);
       });
-   
-    
-
-    
     })
-    
-  
-
     
   }
   fileData = () => {
@@ -192,16 +183,6 @@ const {account,organizationlist,gas,gas_price}=this.props;
                             {this.fileData()}
                         </div>
                     </div>
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
              
              
              */
