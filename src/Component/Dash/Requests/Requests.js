@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import Nav from '../../nav/nav';
 import './fliter/filter.css';
 import axios from 'axios';
+import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
  class Requests extends Component {
     state={
         status:'requests',
         aggr:[],
         id:''
-        
-    
-    
     }
    
   handleAccept=(id,senderIndex,agreementHash)=>
@@ -108,7 +109,13 @@ componentWillMount=()=>
                     
                 
                     a.receiver===this.props.userdata.id && a.status==='pending'?(
-                    <div class="container" style={{border:"1px solid #cecece",marginTop:'100px'}}>
+                        <div class="container" style={{ border: "1px solid #cecece", marginTop: '100px' }}>
+
+
+
+
+
+
                         <div class="row" style={{marginTop:'10px'}}>                                                                 
                              <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
                         </div>                                                      
@@ -132,22 +139,45 @@ componentWillMount=()=>
                       {
                         this.state.status==='accepted'?(
                 <div>{this.state.aggr.map((a)=>
-                a.receiver===this.props.userdata.id && a.status==='accepted'?(
-                    <div class="container" style={{border:"1px solid #cecece",marginTop:'100px'}}>
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
-                    </div>                                                      
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12"style={{position:'relative',left:'10px'}}> sender:{a.sender}</div>               
-                    </div>  
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
-                    </div>  
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
-                    </div>               
-                    </div>                                                    
-                   </div>):(<div/>) ) }        
+                    a.receiver === this.props.userdata.id && a.status === 'accepted' ? (
+                        <div class="container" style={{ border: "1px solid white", marginTop: '45px', marginBottom :'10px' }}>
+                        <Accordion >
+                            <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="0" className={"acctog"}>
+                                        <FontAwesomeIcon icon={faChevronDown} className={"iconclass"} size="1x" />
+                                        <Card.Title>Request Id:{a._id} </Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted accsub">sender:{a.sender}</Card.Subtitle>
+                                   
+
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="0" className={"acctog"}>
+                                    <Card.Body>
+                                        
+                                                File:<a href={url + a.agreementHash} target="_blank" className="viewfile ">view file</a>
+                                         
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+
+
+                  
+                            {/**   <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
+                        </div>                                                      
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12"style={{position:'relative',left:'10px'}}> sender:{a.sender}</div>               
+                        </div>  
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
+                        </div>  
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
+                        </div>               
+                            </div>   
+                            **/}
+                        </div>) : (<div />))
+                        }        
                 </div>
                         ):(<div/>)
                       }
@@ -156,21 +186,42 @@ componentWillMount=()=>
                 <div>
                 {   this.state.aggr.map((a)=>
                 a.receiver===this.props.userdata.id && a.status==='rejected'?(
-                    <div class="container" style={{border:"1px solid #cecece",marginTop:'100px'}}>
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
-                    </div>                                                      
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12"style={{position:'relative',left:'10px'}}> sender:{a.sender}</div>               
-                    </div>  
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
-                    </div>  
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
-                      
-                    </div>               
-                    </div>                                                    
+                        <div class="container" style={{ border: "1px solid white", marginTop: '45px', marginBottom: '10px' }}>
+                            <Accordion >
+                                <Card>
+                                    <Accordion.Toggle as={Card.Header} eventKey="0" className={"acctog"}>
+                                        <FontAwesomeIcon icon={faChevronDown} className={"iconclass"} size="1x" />
+                                        <Card.Title>Request Id:{a._id} </Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted accsub">sender:{a.sender}</Card.Subtitle>
+
+
+                                    </Accordion.Toggle>
+                                    <Accordion.Collapse eventKey="0" className={"acctog"}>
+                                        <Card.Body>
+
+                                            File:<a href={url + a.agreementHash} target="_blank" className="viewfile ">view file</a>
+
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                            </Accordion>
+
+
+                            {/**
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
+                        </div>                                                      
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12"style={{position:'relative',left:'10px'}}> sender:{a.sender}</div>               
+                        </div>  
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
+                        </div>  
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
+                        </div>               
+                        </div>     
+                        **/}
                    </div>):(<div/>) )
                 }         
                 </div>
@@ -181,21 +232,45 @@ componentWillMount=()=>
                 <div>
                 {   this.state.aggr.map((a)=>
                 a.sender===this.props.userdata.id && a.status==='pending'?(
-                    <div class="container" style={{border:"1px solid #cecece",marginTop:'100px'}}>
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
-                    </div>                                                      
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12"style={{position:'relative',left:'10px'}}> receiver:{a.receiver}</div>               
-                    </div>  
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
-                    </div>  
-                    <div class="row" style={{marginTop:'10px'}}>                                                                 
-                    <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
+                        <div class="container" style={{ border: "1px solid white", marginTop: '45px', marginBottom: '10px'  }}>
+
+                            <Accordion >
+                                <Card>
+                                    <Accordion.Toggle as={Card.Header} eventKey="0" className={"acctog"}>
+                                        <FontAwesomeIcon icon={faChevronDown} className={"iconclass"} size="1x" />
+                                        <Card.Title>Request Id:{a._id} </Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted accsub">receiver:{a.receiver}</Card.Subtitle>
+
+
+                                    </Accordion.Toggle>
+                                    <Accordion.Collapse eventKey="0" className={"acctog"}>
+                                        <Card.Body>
+
+                                            File:<a href={url + a.agreementHash} target="_blank" className="viewfile ">view file</a>
+
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                            </Accordion>
+
+
+
+
+                            {/***  <div class="row" style={{marginTop:'10px'}}>                                                                 
+                            <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
+                            </div>                                                      
+                            <div class="row" style={{marginTop:'10px'}}>                                                                 
+                            <div class="col-xs-12"style={{position:'relative',left:'10px'}}> receiver:{a.receiver}</div>               
+                            </div>  
+                            <div class="row" style={{marginTop:'10px'}}>                                                                 
+                            <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
+                            </div>  
+                            <div class="row" style={{marginTop:'10px'}}>                                                                 
+                            <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
                       
-                    </div>               
-                    </div>                                                    
+                            </div>               
+                            </div>   
+                            **/}
                    </div>):(<div/>) )
                 }         
                 </div>
