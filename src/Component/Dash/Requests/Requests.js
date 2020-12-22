@@ -153,7 +153,7 @@ componentWillMount=()=>
                                 <Accordion.Collapse eventKey="0" className={"acctog"}>
                                     <Card.Body>
                                         
-                                                File:<a href={url + a.agreementHash} target="_blank" className="viewfile ">view file</a>
+                                            File:<a href={url + a.agreementHash} className="viewfile" target="_blank">view file</a>
                                          
                                     </Card.Body>
                                 </Accordion.Collapse>
