@@ -70,7 +70,7 @@ const hashData=await ipfs.add(this.state.buffer);
     let id;
     let userIndex;
     
-    
+    let name="";
     await axios.post('https://mysterious-temple-37666.herokuapp.com/api/getuser',{
       username:this.state.username
     }).then(({data})=>{
@@ -82,14 +82,19 @@ const hashData=await ipfs.add(this.state.buffer);
 
     }).
     catch((e)=>alert(e));
-    console.log(this.props.userdata.id)
+    console.log(this.props.userdata.id);
+    await axios.get(`https://mysterious-temple-37666.herokuapp.com/getuser/${this.props.userdata.id}`).then((user)=>{
+       name=name.concat(user.data.user.username);
+    })
     await axios.post('https://mysterious-temple-37666.herokuapp.com/issueAgreement',{
-      private_key:this.state.private_key,
+      filename:this.state.selectedFile.name,
       documentHash:this.state.ipfsHash,
       receiver:id,
       senderIndex:this.props.userdata.userIndex,
-      sender:this.props.userdata.id
-    }).then((res)=>console.log(res)).catch((e)=>console.log(e))
+      sender:this.props.userdata.id,
+      sender_username:name
+    }).then((res)=>console.log(res)).catch((e)=>{console.log(e);
+    this.props.history.push('/dash')})
   
   
   }
@@ -106,7 +111,6 @@ const hashData=await ipfs.add(this.state.buffer);
                         <div class="col-xl-12 col-xl-offset-3 center">
                             <ul className="lists">
                                 <input type="input" id="username"name="username" placeholder="enter username" onChange={this.handleChange} ref={(input)=>this.username=input} />
-                                <input type="password" id="private_key"name="private_key"placeholder="enter private key" onChange={this.handleChange} ref={(input)=>this.private_key=input} />
                                 <input type="file" id="fileup" onChange={this.onFileChange} />
 
                             </ul>

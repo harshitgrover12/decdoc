@@ -10,7 +10,8 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
     state={
         status:'requests',
         aggr:[],
-        id:''
+        name:[],
+       
     }
    
   handleAccept=(id,senderIndex,agreementHash)=>
@@ -31,8 +32,8 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
     })
         }).then(()=>this.setState({status:'requests'})).then(()=>{
             const {account,organizationlist,gas,gas_price}=this.props;
-            console.log(this.props.userdata.userIndex);
-         organizationlist.methods.signDocument(senderIndex,this.props.userdata.userIndex,agreementHash).send({ from:account})
+            
+         organizationlist.methods.signDocument(senderIndex,this.state.userIndex,agreementHash).send({ from:account})
       .then(async({reciept})=> {
          console.log(reciept);
       })
@@ -79,12 +80,32 @@ componentWillMount=()=>
             aggr:aggr
     })
         })
+        this.setState({
+            userIndex:this.props.userdata.userIndex
+        })
         
+}
+getName=(id)=>{
+    var name="";
+     axios.get(`https://mysterious-temple-37666.herokuapp.com/getuser/${id}`).then((user)=>{
+        
+        name=name.concat(user.data.user.username);
+        console.log(name);
+        return name;
+        
+    })
+   
+    
+    
+    
+    
 }
     render() {
        
        let url="https://gateway.ipfs.io/ipfs/";
-        console.log(this.state.aggr)
+       
+        // console.log(this.state.aggr)
+        console.log(this.state.userIndex);
         return (
             <div>
                 <Nav{...this.props}/>
@@ -105,25 +126,23 @@ componentWillMount=()=>
                                 
                 <div>
                             {
+                                
                 this.state.aggr.map((a)=>(
                     
                 
                     a.receiver===this.props.userdata.id && a.status==='pending'?(
                         <div class="container" style={{ border: "1px solid #cecece", marginTop: '100px' }}>
-
-
-
-
-
-
                         <div class="row" style={{marginTop:'10px'}}>                                                                 
                              <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Request Id:{a._id}</div>          
                         </div>                                                      
                         <div class="row" style={{marginTop:'10px'}}>                                                                 
-                            <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Username:{a.sender}</div>               
+                            <div class="col-xs-12"style={{position:'relative',left:'10px'}}> Username:{a.sender_username}</div>               
                         </div>  
                         <div class="row" style={{marginTop:'10px'}}>                                                                 
-                             <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File:<a href={url+a.agreementHash} target="_blank">view file</a></div>               
+                             <div class="col-xs-12" style={{position:'relative',left:'10px'}}> File Name:<a href={url+a.agreementHash} target="_blank">{a.filename}</a></div>               
+                        </div> 
+                        <div class="row" style={{marginTop:'10px'}}>                                                                 
+                             <div class="col-xs-12" style={{position:'relative',left:'10px'}}> Date : {a.timestamp}</div>               
                         </div>  
                         <div class="row" style={{marginTop:'10px'}}>                                                                 
                             <div class="col-xs-12" style={{position:'relative',left:'900px'}}> 
@@ -146,14 +165,14 @@ componentWillMount=()=>
                                 <Accordion.Toggle as={Card.Header} eventKey="0" className={"acctog"}>
                                         <FontAwesomeIcon icon={faChevronDown} className={"iconclass"} size="1x" />
                                         <Card.Title>Request Id:{a._id} </Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted accsub">sender:{a.sender}</Card.Subtitle>
-                                   
+                                        <Card.Subtitle className="mb-2 text-muted accsub">sender:{a.sender_username}</Card.Subtitle>
+                                        <Card.Subtitle className="mb-2 text-muted accsub">Date: {a.timestamp}</Card.Subtitle>
 
                                 </Accordion.Toggle>
                                 <Accordion.Collapse eventKey="0" className={"acctog"}>
                                     <Card.Body>
                                         
-                                            File:<a href={url + a.agreementHash} className="viewfile" target="_blank">view file</a>
+                                            File:<a href={url + a.agreementHash} className="viewfile" target="_blank">{a.filename}</a>
                                          
                                     </Card.Body>
                                 </Accordion.Collapse>
@@ -192,14 +211,14 @@ componentWillMount=()=>
                                     <Accordion.Toggle as={Card.Header} eventKey="0" className={"acctog"}>
                                         <FontAwesomeIcon icon={faChevronDown} className={"iconclass"} size="1x" />
                                         <Card.Title>Request Id:{a._id} </Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted accsub">sender:{a.sender}</Card.Subtitle>
-
+                                        <Card.Subtitle className="mb-2 text-muted accsub">sender:{a.sender_username}</Card.Subtitle>
+                                        <Card.Subtitle className="mb-2 text-muted accsub">Date: {a.timestamp}</Card.Subtitle>
 
                                     </Accordion.Toggle>
                                     <Accordion.Collapse eventKey="0" className={"acctog"}>
                                         <Card.Body>
 
-                                            File:<a href={url + a.agreementHash} target="_blank" className="viewfile ">view file</a>
+                                            File:<a href={url + a.agreementHash} target="_blank" className="viewfile ">{a.filename}</a>
 
                                         </Card.Body>
                                     </Accordion.Collapse>
@@ -231,7 +250,7 @@ componentWillMount=()=>
                         this.state.status==='sent'?(
                 <div>
                 {   this.state.aggr.map((a)=>
-                a.sender===this.props.userdata.id && a.status==='pending'?(
+                a.sender===this.props.userdata.id ?(
                         <div class="container" style={{ border: "1px solid white", marginTop: '45px', marginBottom: '10px'  }}>
 
                             <Accordion >
@@ -239,14 +258,14 @@ componentWillMount=()=>
                                     <Accordion.Toggle as={Card.Header} eventKey="0" className={"acctog"}>
                                         <FontAwesomeIcon icon={faChevronDown} className={"iconclass"} size="1x" />
                                         <Card.Title>Request Id:{a._id} </Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted accsub">receiver:{a.receiver}</Card.Subtitle>
-
-
+                                        <Card.Subtitle className="mb-2 text-muted accsub">receiver:{this.getName(a.receiver)}</Card.Subtitle>
+                                        <Card.Subtitle className="mb-2 text-muted accsub">Date:{a.timestamp}</Card.Subtitle>
+                                        <Card.Subtitle className="mb-2 text-muted accsub">Status:{a.status}</Card.Subtitle>
                                     </Accordion.Toggle>
                                     <Accordion.Collapse eventKey="0" className={"acctog"}>
                                         <Card.Body>
 
-                                            File:<a href={url + a.agreementHash} target="_blank" className="viewfile ">view file</a>
+                                            File:<a href={url + a.agreementHash} target="_blank" className="viewfile ">{a.filename}</a>
 
                                         </Card.Body>
                                     </Accordion.Collapse>

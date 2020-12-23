@@ -46,6 +46,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
     let userId;
     let userIndex;
     let orgIndex;
+    console.log(this.state.ipfsHash)
     await axios.post('https://mysterious-temple-37666.herokuapp.com/api/getuser',{
       username:this.state.username
     }).then(({data})=>{
@@ -58,7 +59,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
     catch((e)=>alert(e));
     
     axios.post('https://mysterious-temple-37666.herokuapp.com/returnOrgIndex',{    //make this api that gives me the org index from organization schema in backend
-      organizationName:this.props.userdata.organizationName
+      organizationName:this.props.userdata.username
     }).then(async(res)=>{
       console.log("orgindex ka response",res);
       orgIndex=res.data.orgIndex;

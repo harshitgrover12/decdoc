@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ipfs from '../ipfs/ipfs.js';
 import Nav from '../nav/nav';
-
+import axios from 'axios';
 import './upload1.css';
  class Upload1 extends Component {
      state = {
@@ -33,11 +33,41 @@ import './upload1.css';
        this.setState({
            ipfsHash:data.path
        })
+       axios.post('https://mysterious-temple-37666.herokuapp.com/issuepersonaldoc',{
+           hash:this.state.ipfsHash,
+           user_id:this.props.userdata.id,
+           filename:this.state.selectedFile.name
+       }).then((res)=>{console.log(res);
+       this.props.history.push('/dash')})
+
        
       
 
 
   }
+   fileData = () => {
+    if (this.state.selectedFile) {
+      return (
+        <div>
+          <h2>File Details:</h2>
+          <p>File Name: {this.state.selectedFile.name}</p>
+          <p>File Type: {this.state.selectedFile.type}</p>
+          <p>
+            Last Modified:{" "}
+            {this.state.selectedFile.lastModifiedDate &&
+              this.state.selectedFile.lastModifiedDate.toDateString()}
+          </p>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <br />
+          <h4>Choose before Pressing the Upload button</h4>
+        </div>
+      );
+    }
+  };
 //   componentDidMount=()=>{
 //       console.log(this.props);
 //   }
@@ -72,6 +102,13 @@ import './upload1.css';
                                             <div class="btn-container">
                                                 <button type="button" class="btn btn-primary btn-lg" onClick={this.handleSubmit}>Upload <i className="fa fa-upload fa-1x" /></button>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="row docpad">
+                                        <div class="col-xl-12 col-xl-offset-3 center">
+                                            
+                                                {this.fileData()}
+                                            
                                         </div>
                                     </div>
 

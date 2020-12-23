@@ -13,6 +13,7 @@ import Requests from './Component/Dash/Requests/Requests';
 import UploadIPFS from './Component/upload/upload';
 import VerifyContract from './Component/Dash/VerifyContract/VerifyContract';
 import Upload1 from './Component/upload/Upload1';
+import ViewDocuments from './Component/Dash/viewDocuments/viewDocuments'
  class Routes extends Component {
     render() {
         return (
@@ -32,6 +33,7 @@ import Upload1 from './Component/upload/Upload1';
                 <Route exact path='/viewRequests'render={(props)=><Requests{...this.props}/>}/>
                 <Route exact path='/verifyContract'render={(props)=><VerifyContract{...this.props}/>}/>
                 <Route exact path='/documentUpload'render={(props)=><Upload1{...this.props}/>}/>
+                <Route exact path='/viewDocuments'render={(props)=><ViewDocuments{...this.props}/>}/>
             </Switch>
                 
             </div>

@@ -19,7 +19,11 @@ import React from 'react';
                     <li className="drop-down"><a href>Account Options</a>
                       <ul>
                         <li><a href="/editProfile">edit profile</a></li>
-                        <li><a href="/documents">View Documents</a></li> 
+                        <li><a onClick=
+                        {(e)=>{e.preventDefault();
+                        props.history.push('/viewDocuments')}}>
+                        View Documents
+                        </a></li> 
                         <li><a onClick={(e)=>{e.preventDefault();
                         props.history.push('/viewRequests')}}>Contract Signings</a></li>
                       </ul>
