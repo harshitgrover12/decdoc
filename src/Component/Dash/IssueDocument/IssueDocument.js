@@ -123,7 +123,7 @@ const {account,organizationlist,gas,gas_price}=this.props;
                                 <input type="input" id="username"name="username" placeholder="Enter Username" onChange={this.handleChange} ref={(input)=>this.username=input}/>
                                   <input type="password" id="secret"name="secret"placeholder="Enter Secret" onChange={this.handleChange} ref={(input)=>this.secret=input}/>
                                   <input type="password" id="private_key"name="private_key"placeholder="Enter Private Key" onChange={this.handleChange} ref={(input)=>this.private_key=input}/>
-                                <input type="file" id="fileup" onChange={this.onFileChange} />
+                                
 
                             </ul>
                         </div>

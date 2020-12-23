@@ -93,8 +93,10 @@ const hashData=await ipfs.add(this.state.buffer);
       senderIndex:this.props.userdata.userIndex,
       sender:this.props.userdata.id,
       sender_username:name
-    }).then((res)=>console.log(res)).catch((e)=>{console.log(e);
-    this.props.history.push('/dash')})
+    }).then((res)=>{console.log(res);
+     this.props.history.push('/dash')
+    }).catch((e)=>{console.log(e);
+   })
   
   
   }
